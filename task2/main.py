@@ -6,26 +6,25 @@ app=FastAPI(title="CRUD operation")
 students=[]
 
 
-class Stud_create(BaseModel):
+class UserRequest(BaseModel):
     id: str=Field(min_length=1,max_length=35)
     name: str=Field(min_length=1,max_length=40)
     email: EmailStr
     course: str=Field(min_length=1,max_length=70)
-
-class UserResponce(BaseModel):
+class UserResponse(BaseModel):
     message: str
     id: str
     name: str
     email: EmailStr
     course: str
-@app.post("/students",response_model=UserResponce,status_code=201)
+@app.post("/students",response_model=UserResponse,status_code=201)
 
 
-def create_user(data: Stud_create):
+def create_student(data: UserRequest):
 
     students.append(data)
     return {
-        "message":"student created succefully",
+        "message":"student created successfully",
         "id": data.id,
         "name": data.name,
         "email": data.email,
@@ -33,14 +32,15 @@ def create_user(data: Stud_create):
     }
 
 @app.put("/students/{id}")
-def update_student(id: str, data: Stud_create):
+def update_student_id(id: str, data: UserRequest
+):
     for student in students:
         if student.id ==id:
             student.name=data.name
             student.email=data.email
             student.course=data.course
             return{
-                "message":"Student upadted successfully",
+                "message":"Student updated successfully",
                 "data":student
             }
     raise HTTPException(
@@ -49,11 +49,11 @@ def update_student(id: str, data: Stud_create):
     )
 
 @app.get("/students/{id}")
-def get_student(id: str):
+def get_student_id(id: str):
     for student in students:
         if student.id==id:
             return {
-                "message":"student retived successfully",
+                "message":"student retrieved successfully",
                 "data":student}
     raise HTTPException(
         status_code=404,
@@ -76,7 +76,7 @@ def del_student(id: str):
 
 
 @app.get("/students")
-def home():
+def get_students():
     return {"message":"student retrieved successfully",
             "data":students}
 
