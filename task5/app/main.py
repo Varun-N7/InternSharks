@@ -1,0 +1,1 @@
+from app.routes.student_routes import app
