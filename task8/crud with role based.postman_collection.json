@@ -1,0 +1,1265 @@
+{
+	"info": {
+		"_postman_id": "200f0021-d511-4e8a-8810-03b5702166b1",
+		"name": "crud with role based",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "57475732",
+		"_collection_link": "https://mrofficials-7018126.postman.co/workspace/Varun's-Workspace~649c6be5-80df-4dea-8316-73a843c6065d/collection/57475732-200f0021-d511-4e8a-8810-03b5702166b1?action=share&source=collection_link&creator=57475732"
+	},
+	"item": [
+		{
+			"name": "create user",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "create user",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"testuser\",\n    \"email\": \"testuser8@gmail.com\",\n    \"password\": \"test1234\",\n    \"full_name\": \"Test User\",\n    \"phone\": \"9876543210\",\n    \"department\": \"AI\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 31 Aug 2026 04:46:33 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "226"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"user created successfully\",\n    \"data\": {\n        \"id\": \"6a95072a952e0bd116d84cce\",\n        \"username\": \"testuser\",\n        \"email\": \"testuser8@gmail.com\",\n        \"full_name\": \"Test User\",\n        \"phone\": \"9876543210\",\n        \"department\": \"AI\",\n        \"role\": \"user\",\n        \"is_active\": true\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"testuser8@gmail.com\",\n    \"password\": \"test1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 31 Aug 2026 04:47:23 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "259"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"login successful\",\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3R1c2VyOEBnbWFpbC5jb20iLCJleHAiOjE3ODgxNTM0NDR9.UpHBvRrHWb7Z-QUZDWeP21PGjKeVDRotymAmvmetFy4\",\n    \"username\": \"testuser\",\n    \"email\": \"testuser8@gmail.com\",\n    \"role\": \"user\"\n}"
+				}
+			]
+		},
+		{
+			"name": "get data",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "get data",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/me",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"me"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 31 Aug 2026 04:50:17 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "179"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"6a95072a952e0bd116d84cce\",\n    \"username\": \"testuser\",\n    \"email\": \"testuser8@gmail.com\",\n    \"full_name\": \"Test User\",\n    \"phone\": \"9876543210\",\n    \"department\": \"AI\",\n    \"role\": \"user\",\n    \"is_active\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "phone num change",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "phone num change",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"full_name\": \"Test User Updated\",\n    \"phone\": \"9999999999\",\n    \"department\": \"Backend\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/me",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"me"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 31 Aug 2026 04:51:24 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "192"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"6a95072a952e0bd116d84cce\",\n    \"username\": \"testuser\",\n    \"email\": \"testuser8@gmail.com\",\n    \"full_name\": \"Test User Updated\",\n    \"phone\": \"9999999999\",\n    \"department\": \"Backend\",\n    \"role\": \"user\",\n    \"is_active\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "user attempt to change role",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "user attempt to change role",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"role\": \"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/me",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"me"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 31 Aug 2026 04:53:28 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "32"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"No fields to update\"\n}"
+				}
+			]
+		},
+		{
+			"name": "user attempt to change is_active",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "user attepmt to change the is_active",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"is_active\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/me",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"me"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 31 Aug 2026 05:06:18 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "32"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"No fields to update\"\n}"
+				}
+			]
+		},
+		{
+			"name": "admin access",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "admin access",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/admin/users",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"admin",
+								"users"
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 31 Aug 2026 05:07:57 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "34"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"Admin access required\"\n}"
+				}
+			]
+		},
+		{
+			"name": "admin login",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "admin login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"testuser8@gmail.com\",\n    \"password\": \"test1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 31 Aug 2026 05:20:44 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "260"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"login successful\",\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3R1c2VyOEBnbWFpbC5jb20iLCJleHAiOjE3ODgxNTU0NDV9.UCzQbXQqw3t0hO7l5R1k2sOaMmfSRWQ0WDm_k9zpv2M\",\n    \"username\": \"testuser\",\n    \"email\": \"testuser8@gmail.com\",\n    \"role\": \"admin\"\n}"
+				}
+			]
+		},
+		{
+			"name": "admin view all users",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "admin view all users",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/admin/users",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"admin",
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 31 Aug 2026 05:24:29 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "795"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"users retrieved successfully\",\n    \"data\": [\n        {\n            \"id\": \"6a8c27b4c206c3d0c6f252e0\",\n            \"username\": \"varun\",\n            \"email\": \"varun@gmail.com\",\n            \"full_name\": \"Existing User\",\n            \"phone\": \"0000000000\",\n            \"department\": \"General\",\n            \"role\": \"user\",\n            \"is_active\": true\n        },\n        {\n            \"id\": \"6a8c2eac8aa4f81d7aaa530e\",\n            \"username\": \"sundar\",\n            \"email\": \"sundar@gmail.com\",\n            \"full_name\": \"Existing User\",\n            \"phone\": \"0000000000\",\n            \"department\": \"General\",\n            \"role\": \"user\",\n            \"is_active\": true\n        },\n        {\n            \"id\": \"6a8e69e4ed1ccc59acfd0092\",\n            \"username\": \"shanti\",\n            \"email\": \"shanti@gmail.com\",\n            \"full_name\": \"Existing User\",\n            \"phone\": \"0000000000\",\n            \"department\": \"General\",\n            \"role\": \"user\",\n            \"is_active\": true\n        },\n        {\n            \"id\": \"6a95072a952e0bd116d84cce\",\n            \"username\": \"testuser\",\n            \"email\": \"testuser8@gmail.com\",\n            \"full_name\": \"Test User Updated\",\n            \"phone\": \"9999999999\",\n            \"department\": \"Backend\",\n            \"role\": \"admin\",\n            \"is_active\": true\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "filter user using role",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "filter user using role",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/admin/users?role=user",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"admin",
+								"users"
+							],
+							"query": [
+								{
+									"key": "role",
+									"value": "user"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 31 Aug 2026 05:30:28 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "601"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"users retrieved successfully\",\n    \"data\": [\n        {\n            \"id\": \"6a8c27b4c206c3d0c6f252e0\",\n            \"username\": \"varun\",\n            \"email\": \"varun@gmail.com\",\n            \"full_name\": \"Existing User\",\n            \"phone\": \"0000000000\",\n            \"department\": \"General\",\n            \"role\": \"user\",\n            \"is_active\": true\n        },\n        {\n            \"id\": \"6a8c2eac8aa4f81d7aaa530e\",\n            \"username\": \"sundar\",\n            \"email\": \"sundar@gmail.com\",\n            \"full_name\": \"Existing User\",\n            \"phone\": \"0000000000\",\n            \"department\": \"General\",\n            \"role\": \"user\",\n            \"is_active\": true\n        },\n        {\n            \"id\": \"6a8e69e4ed1ccc59acfd0092\",\n            \"username\": \"shanti\",\n            \"email\": \"shanti@gmail.com\",\n            \"full_name\": \"Existing User\",\n            \"phone\": \"0000000000\",\n            \"department\": \"General\",\n            \"role\": \"user\",\n            \"is_active\": true\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "filter by dept",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "filter by dept",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/admin/users?department=AI",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"admin",
+								"users"
+							],
+							"query": [
+								{
+									"key": "department",
+									"value": "AI"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 31 Aug 2026 05:38:37 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "52"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"users retrieved successfully\",\n    \"data\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "filter using active status",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "filter using active status",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/admin/users?is_active=true",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"admin",
+								"users"
+							],
+							"query": [
+								{
+									"key": "is_active",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 31 Aug 2026 05:40:00 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "795"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"users retrieved successfully\",\n    \"data\": [\n        {\n            \"id\": \"6a8c27b4c206c3d0c6f252e0\",\n            \"username\": \"varun\",\n            \"email\": \"varun@gmail.com\",\n            \"full_name\": \"Existing User\",\n            \"phone\": \"0000000000\",\n            \"department\": \"General\",\n            \"role\": \"user\",\n            \"is_active\": true\n        },\n        {\n            \"id\": \"6a8c2eac8aa4f81d7aaa530e\",\n            \"username\": \"sundar\",\n            \"email\": \"sundar@gmail.com\",\n            \"full_name\": \"Existing User\",\n            \"phone\": \"0000000000\",\n            \"department\": \"General\",\n            \"role\": \"user\",\n            \"is_active\": true\n        },\n        {\n            \"id\": \"6a8e69e4ed1ccc59acfd0092\",\n            \"username\": \"shanti\",\n            \"email\": \"shanti@gmail.com\",\n            \"full_name\": \"Existing User\",\n            \"phone\": \"0000000000\",\n            \"department\": \"General\",\n            \"role\": \"user\",\n            \"is_active\": true\n        },\n        {\n            \"id\": \"6a95072a952e0bd116d84cce\",\n            \"username\": \"testuser\",\n            \"email\": \"testuser8@gmail.com\",\n            \"full_name\": \"Test User Updated\",\n            \"phone\": \"9999999999\",\n            \"department\": \"Backend\",\n            \"role\": \"admin\",\n            \"is_active\": true\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "admin view by obj_id",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "admin view by obj_id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/admin/users/6a8c27b4c206c3d0c6f252e0",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"admin",
+								"users",
+								"6a8c27b4c206c3d0c6f252e0"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 31 Aug 2026 05:44:00 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "230"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"user retrieved successfully\",\n    \"data\": {\n        \"id\": \"6a8c27b4c206c3d0c6f252e0\",\n        \"username\": \"varun\",\n        \"email\": \"varun@gmail.com\",\n        \"full_name\": \"Existing User\",\n        \"phone\": \"0000000000\",\n        \"department\": \"General\",\n        \"role\": \"user\",\n        \"is_active\": true\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Admin promotes a user to admin",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Admin Promotes a User to Admin",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"role\": \"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/admin/users/6a8c27b4c206c3d0c6f252e0/role",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"admin",
+								"users",
+								"6a8c27b4c206c3d0c6f252e0",
+								"role"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 31 Aug 2026 05:46:06 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "234"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"user role updated successfully\",\n    \"data\": {\n        \"id\": \"6a8c27b4c206c3d0c6f252e0\",\n        \"username\": \"varun\",\n        \"email\": \"varun@gmail.com\",\n        \"full_name\": \"Existing User\",\n        \"phone\": \"0000000000\",\n        \"department\": \"General\",\n        \"role\": \"admin\",\n        \"is_active\": true\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "admin deactivates a user",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"is_active\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/admin/users/6a8c27b4c206c3d0c6f252e0/status",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"admin",
+								"users",
+								"6a8c27b4c206c3d0c6f252e0",
+								"status"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 31 Aug 2026 06:36:24 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "237"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"user status updated successfully\",\n    \"data\": {\n        \"id\": \"6a8c27b4c206c3d0c6f252e0\",\n        \"username\": \"varun\",\n        \"email\": \"varun@gmail.com\",\n        \"full_name\": \"Existing User\",\n        \"phone\": \"0000000000\",\n        \"department\": \"General\",\n        \"role\": \"admin\",\n        \"is_active\": false\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "admin deactivates user",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "admin deactivates user",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"is_active\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/admin/users/6a95220183231df173897d70/status",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"admin",
+								"users",
+								"6a95220183231df173897d70",
+								"status"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 31 Aug 2026 06:45:22 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "240"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"user status updated successfully\",\n    \"data\": {\n        \"id\": \"6a95220183231df173897d70\",\n        \"username\": \"normaluser\",\n        \"email\": \"normaluser8@gmail.com\",\n        \"full_name\": \"Normal User\",\n        \"phone\": \"8888888888\",\n        \"department\": \"AI\",\n        \"role\": \"user\",\n        \"is_active\": false\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "delete user",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "delete user",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/admin/users/6a95220183231df173897d70",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"admin",
+								"users",
+								"6a95220183231df173897d70"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 31 Aug 2026 06:48:26 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "39"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"User deleted successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Non-existing user",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Non-existing User",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/admin/users/6a95220183231df173897d70",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"admin",
+								"users",
+								"6a95220183231df173897d70"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 31 Aug 2026 06:49:53 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "27"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"User not found\"\n}"
+				}
+			]
+		},
+		{
+			"name": "request without token",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "request without token",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/me",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"me"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 31 Aug 2026 06:50:59 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "www-authenticate",
+							"value": "Bearer"
+						},
+						{
+							"key": "content-length",
+							"value": "30"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"Not authenticated\"\n}"
+				}
+			]
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "invalid token",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/me",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"me"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 31 Aug 2026 06:52:51 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "37"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"Invalid or expired token\"\n}"
+				}
+			]
+		},
+		{
+			"name": "expired token",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "expired token",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/me",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"me"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 31 Aug 2026 06:55:47 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "37"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"Invalid or expired token\"\n}"
+				}
+			]
+		}
+	]
+}
