@@ -1,0 +1,562 @@
+{
+	"info": {
+		"_postman_id": "e3b700c0-a56f-4f8c-a332-be5d1e9daeb9",
+		"name": "task12",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "57475732",
+		"_collection_link": "https://mrofficials-7018126.postman.co/workspace/Varun's-Workspace~649c6be5-80df-4dea-8316-73a843c6065d/collection/57475732-e3b700c0-a56f-4f8c-a332-be5d1e9daeb9?action=share&source=collection_link&creator=57475732"
+	},
+	"item": [
+		{
+			"name": "Normal Prompt",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"prompt\": \"Explain FastAPI in simple words\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/ai/generate",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"ai",
+						"generate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Normal Prompt",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"prompt\": \"Explain FastAPI in simple words\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/ai/generate",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"ai",
+								"generate"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 07 Sep 2026 05:31:13 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "3362"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"status_code\": 200,\n    \"response\": \"## FastAPI – “Fast” + “API”\\n\\nFastAPI is a modern Python web framework that makes it quick and easy to build APIs (the “behind‑the‑scenes” code that lets your app talk to a browser, mobile phone, or another service).  \\nThink of it as a lightweight “plug‑in” that handles:\\n\\n| What it does | How it helps | Why the name *FastAPI* |\\n|--------------|--------------|-----------------------|\\n| **Define endpoints** – the URLs that clients call (e.g. `GET /users/5`) | You write a tiny function and FastAPI turns it into a working web route | Uses **Starlette** (fast async server) + **Pydantic** (fast data validation) |\\n| **Validate data automatically** – checks that the JSON you send has the right fields, types, and ranges | Saves you from writing tedious checks; errors are returned in a friendly JSON format | Validation is done at request start, before your code runs |\\n| **Generate docs on the fly** – interactive Swagger UI and ReDoc pages that show your API and let you try it | You and your team can explore and test the API without writing extra docs | Built‑in, no extra tool needed |\\n| **Run async/await** – your endpoint can do multiple I/O tasks concurrently | Great performance, especially for I/O‑bound work (DB queries, network calls) | “Fast” again – it handles many requests with low overhead |\\n\\n---\\n\\n## A “Hello, world!” in 5 lines\\n\\n```python\\n# main.py\\nfrom fastapi import FastAPI\\n\\napp = FastAPI()           # 1. Create the application\\n\\n@app.get(\\\"/\\\")             # 2. Declare a route (HTTP GET on \\\"/\\\")\\ndef read_root():          # 3. Define a Python function\\n    return {\\\"message\\\": \\\"Hello, world!\\\"}  # 4. Return a dict → JSON\\n```\\n\\nRun it:\\n\\n```\\nuvicorn main:app --reload\\n```\\n\\nOpen `http://localhost:8000/` → you see `{\\\"message\\\":\\\"Hello, world!\\\"}`.  \\nOpen `http://localhost:8000/docs` → you get an interactive Swagger UI.\\n\\n---\\n\\n## Why choose FastAPI?\\n\\n| Feature | FastAPI | Flask / Django (traditional) |\\n|---------|---------|-----------------------------|\\n| **Performance** | ~20‑40\\u202f× faster than Flask on async workloads | Slower, especially with many concurrent connections |\\n| **Type hints** | Uses Python type annotations everywhere (function params, response models) → IDE help, auto docs | Optional, rarely enforced |\\n| **Validation** | Pydantic automatically checks input data | You need to write your own checks |\\n| **Docs generation** | Auto‑generated, interactive | Requires external tools (Swagger UI, ReDoc) |\\n| **Learning curve** | Very short – similar to writing plain Python | Can be heavier (templates, ORM, admin) |\\n| **Async support** | Full async/await out of the box | Async support exists but not as straightforward |\\n\\n---\\n\\n## Quick recap\\n\\n- **FastAPI** = a fast, type‑friendly, auto‑documenting framework for building HTTP APIs in Python.\\n- Write a normal Python function → FastAPI turns it into a web route.\\n- Data validation, documentation, and async support happen for free.\\n- Ideal for microservices, REST APIs, or any backend that needs to respond quickly to many clients.\\n\\nThat’s it—FastAPI lets you build powerful, well‑typed APIs with minimal boilerplate, and you get a great developer experience plus a blazing‑fast runtime.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Different prompt",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"prompt\": \"What is Python?\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/ai/generate",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"ai",
+						"generate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Different prompt",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"prompt\": \"What is Python?\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/ai/generate",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"ai",
+								"generate"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 07 Sep 2026 05:41:56 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "2150"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"status_code\": 200,\n    \"response\": \"**Python** is a high‑level, general‑purpose programming language that was created by Guido van Rossum and first released in 1991. It is known for its readability, simplicity, and powerful ecosystem of libraries and frameworks.\\n\\n| Feature | What it means |\\n|---------|---------------|\\n| **Readable syntax** | Code looks close to English, making it easier to learn and maintain. |\\n| **Interpreted** | Python code is executed line‑by‑line by the interpreter, so you can test snippets quickly. |\\n| **Dynamic typing** | Variables don’t need explicit type declarations; the interpreter figures it out at runtime. |\\n| **Large standard library** | Includes modules for networking, file I/O, regular expressions, math, data manipulation, and more. |\\n| **Extensible** | C, C++, and other languages can be integrated for performance‑critical parts. |\\n| **Cross‑platform** | Runs on Windows, macOS, Linux, and many other systems. |\\n| **Community & ecosystem** | Thousands of open‑source packages on PyPI (Python Package Index) – e.g., NumPy, pandas, Flask, Django, TensorFlow. |\\n\\n### Typical Use Cases\\n- **Web development** (Flask, Django)\\n- **Data science & machine learning** (pandas, scikit‑learn, TensorFlow, PyTorch)\\n- **Automation & scripting** (system admin tasks, DevOps)\\n- **Scientific computing** (SciPy, NumPy)\\n- **Game development** (Pygame)\\n- **Desktop GUIs** (Tkinter, PyQt)\\n\\n### A Quick Example\\n\\n```python\\ndef greet(name: str) -> None:\\n    \\\"\\\"\\\"Print a friendly greeting.\\\"\\\"\\\"\\n    print(f\\\"Hello, {name}!\\\")\\n\\ngreet(\\\"Alice\\\")\\n```\\n\\nOutput:\\n```\\nHello, Alice!\\n```\\n\\n### Learning Path\\n1. **Basics**: variables, control flow, functions, data structures.\\n2. **Intermediate**: OOP, modules, error handling, file I/O.\\n3. **Advanced**: decorators, generators, context managers.\\n4. **Specialized**: pick a domain (web, data, automation) and dive into frameworks and libraries.\\n\\nPython’s motto is “*Pythonic*” – write code that is clear, concise, and elegant. That’s why it’s a favorite for both beginners and seasoned developers alike.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Empty prompt",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"prompt\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/ai/generate",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"ai",
+						"generate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Empty prompt",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"prompt\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/ai/generate",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"ai",
+								"generate"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "",
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 07 Sep 2026 05:43:29 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "97"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"status_code\": 422,\n    \"error\": \"VALIDATION_ERROR\",\n    \"message\": \"Prompt cannot be empty\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Missing prompt",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/ai/generate",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"ai",
+						"generate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Missing prompt",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/ai/generate",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"ai",
+								"generate"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 07 Sep 2026 05:43:48 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "95"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"status_code\": 422,\n    \"error\": \"VALIDATION_ERROR\",\n    \"message\": \"Invalid request data\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Invalid request body",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"prompt\": 12345\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/ai/generate",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"ai",
+						"generate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Invalid request body",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"prompt\": 12345\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/ai/generate",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"ai",
+								"generate"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 07 Sep 2026 05:44:35 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "95"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"status_code\": 422,\n    \"error\": \"VALIDATION_ERROR\",\n    \"message\": \"Invalid request data\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Invalid Groq API key",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Invalid Groq API key",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"prompt\": \"Hello\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/ai/generate",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"ai",
+								"generate"
+							]
+						}
+					},
+					"status": "Service Unavailable",
+					"code": 503,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 07 Sep 2026 05:46:58 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "116"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"status_code\": 503,\n    \"error\": \"AI_SERVICE_UNAVAILABLE\",\n    \"message\": \"AI service is currently unavailable\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Rate limit",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Rate limit",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"prompt\": \"TEST_RATE_LIMIT\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/ai/generate",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"ai",
+								"generate"
+							]
+						}
+					},
+					"status": "Too Many Requests",
+					"code": 429,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 07 Sep 2026 05:52:23 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "104"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"status_code\": 429,\n    \"error\": \"AI_RATE_LIMITED\",\n    \"message\": \"AI service rate limit exceeded\"\n}"
+				}
+			]
+		}
+	]
+}
