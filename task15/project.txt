@@ -1,0 +1,1 @@
+The development team is building a payment API integration for the client. The core integration has been completed, but testing is currently blocked because the client has not provided the required API credentials. Once the credentials are received, the team will complete authentication testing and deploy the integration to staging.
