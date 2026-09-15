@@ -1,0 +1,5 @@
+FastAPI is a modern Python web framework used for building APIs.
+RAG stands for Retrieval-Augmented Generation.
+RAG retrieves relevant information from documents before generating an answer.
+FAISS is a library used for efficient similarity search of vectors.
+OpenRouter provides access to different AI models through an API.
