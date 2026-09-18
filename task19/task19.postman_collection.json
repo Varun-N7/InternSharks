@@ -1,0 +1,1490 @@
+{
+  "info": {
+    "_postman_id": "016269c3-ea3b-4266-aeea-a0d73d27e30b",
+    "name": "task19",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "57475732",
+    "_collection_link": "https://go.postman.co/collection/57475732-016269c3-ea3b-4266-aeea-a0d73d27e30b?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Employee lookup",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": \"test-session-1\",\n  \"message\": \"Who is employee 101?\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "ai",
+            "employee-assistant"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Employee lookup",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"test-session-1\",\n  \"message\": \"Who is employee 101?\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "ai",
+                "employee-assistant"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Fri, 18 Sep 2026 04:27:06 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "319"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"status_code\": 200,\n  \"data\": {\n    \"response\": \"Employee 101 is **Arun**, who works in the **Development** department as a **Backend Developer**.\\n\\n**Leave Balances:**\\n- Casual Leave: 8 days\\n- Sick Leave: 5 days\\n\\nIs there anything else you'd like to know about this employee?\",\n    \"tools_used\": [\n      \"get_employee\"\n    ]\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Leave balance",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": \"test-session-1\",\n  \"message\": \"How many casual and sick leaves does employee 101 have?\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "ai",
+            "employee-assistant"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Leave balance",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"test-session-1\",\n  \"message\": \"How many casual and sick leaves does employee 101 have?\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "ai",
+                "employee-assistant"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Fri, 18 Sep 2026 04:28:08 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "198"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"status_code\": 200,\n  \"data\": {\n    \"response\": \"\\n\\nEmployee 101 has the following leave balances:\\n\\n- **Casual Leave:** 8 days\\n- **Sick Leave:** 5 days\",\n    \"tools_used\": [\n      \"get_leave_balance\"\n    ]\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Company holidays",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": \"test-session-1\",\n  \"message\": \"What are the company holidays?\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "ai",
+            "employee-assistant"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Company holidays",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"test-session-1\",\n  \"message\": \"What are the company holidays?\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "ai",
+                "employee-assistant"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Fri, 18 Sep 2026 04:29:07 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "211"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"status_code\": 200,\n  \"data\": {\n    \"response\": \"Here are the company holidays:\\n\\n1. **October 2, 2026** - Gandhi Jayanti\\n2. **October 20, 2026** - Company Holiday\",\n    \"tools_used\": [\n      \"get_company_holidays\"\n    ]\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Leave application",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": \"test-session-1\",\n  \"message\": \"Apply one day casual leave for employee 101 on September 15 2026 for personal work.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "ai",
+            "employee-assistant"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Leave application",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"test-session-1\",\n  \"message\": \"Apply one day casual leave for employee 101 on September 15 2026 for personal work.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "ai",
+                "employee-assistant"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Fri, 18 Sep 2026 04:32:08 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "494"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"status_code\": 200,\n  \"data\": {\n    \"response\": \"The casual leave request for employee 101 (Arun) has been successfully submitted and is **pending approval**.\\n\\n**Leave Request Details:**\\n- **Leave Request ID:** 1\\n- **Employee:** Arun (ID: 101)\\n- **Leave Type:** Casual\\n- **Date:** September 15, 2026 (one day)\\n- **Reason:** Personal work\\n- **Status:** Pending\\n\\nThe request will need to be approved by the appropriate manager before it's confirmed.\",\n    \"tools_used\": [\n      \"apply_leave\"\n    ]\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Multi-tool employee and leave balance",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": \"multi-tool-1\",\n  \"message\": \"Give me the details of employee 101 and tell me their casual and sick leave balance.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "ai",
+            "employee-assistant"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Multi-tool employee and leave balance",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"multi-tool-1\",\n  \"message\": \"Give me the details of employee 101 and tell me their casual and sick leave balance.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "ai",
+                "employee-assistant"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Fri, 18 Sep 2026 04:33:55 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "401"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"status_code\": 200,\n  \"data\": {\n    \"response\": \"Here are the details for employee 101:\\n\\n**Employee Information**\\n- Name: Arun\\n- Department: Development\\n- Designation: Backend Developer\\n\\n**Leave Balances**\\n- Casual leave: 8\\n- Sick leave: 5\\n\\nLet me know if you need anything else, such as leave request history or applying for leave.\",\n    \"tools_used\": [\n      \"get_employee\",\n      \"get_leave_balance\"\n    ]\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get leave requests",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": \"multi-tool-1\",\n  \"message\": \"Show me employee 101's leave requests.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "ai",
+            "employee-assistant"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Get leave requests",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"multi-tool-1\",\n  \"message\": \"Show me employee 101's leave requests.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "ai",
+                "employee-assistant"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Fri, 18 Sep 2026 04:35:49 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "432"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"status_code\": 200,\n  \"data\": {\n    \"response\": \"Here are the leave requests for employee 101 (Arun):\\n\\n**Leave Request #1**\\n- **Leave Type:** Casual\\n- **Dates:** September 15, 2026 (single day)\\n- **Reason:** Personal work\\n- **Status:** Pending\\n\\nThis is the only leave request currently on record for this employee. Let me know if you'd like to see more details or take any action.\",\n    \"tools_used\": [\n      \"get_leave_requests\"\n    ]\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Invalid employee",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": \"validation-1\",\n  \"message\": \"Show me the details of employee 999.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "ai",
+            "employee-assistant"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Invalid employee",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"validation-1\",\n  \"message\": \"Show me the details of employee 999.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "ai",
+                "employee-assistant"
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Fri, 18 Sep 2026 04:40:27 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "31"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"detail\": \"Employee not found\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Invalid leave type",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": \"invalid-leave-test-2\",\n  \"message\": \"Apply vacation leave for employee 101 on September 20 2026 for personal work.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "ai",
+            "employee-assistant"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Invalid leave type",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"invalid-leave-test-2\",\n  \"message\": \"Apply vacation leave for employee 101 on September 20 2026 for personal work.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "ai",
+                "employee-assistant"
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Fri, 18 Sep 2026 04:46:18 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "151"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"detail\": {\n    \"success\": false,\n    \"status_code\": 400,\n    \"data\": {\n      \"error\": \"Invalid leave type: 'vacation leave'. Only casual leave and sick leave are supported.\"\n    }\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Conversation context",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": \"context-1\",\n  \"message\": \"Who is employee 102?\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "ai",
+            "employee-assistant"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Conversation context",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"context-1\",\n  \"message\": \"Who is employee 102?\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "ai",
+                "employee-assistant"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Fri, 18 Sep 2026 04:54:07 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "265"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"status_code\": 200,\n  \"data\": {\n    \"response\": \"Employee 102 is **Priya**, who works as a **UI/UX Designer** in the **Design** department. Her current leave balances are:\\n\\n- **Casual Leave:** 6 days\\n- **Sick Leave:** 4 days\",\n    \"tools_used\": [\n      \"get_employee\"\n    ]\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Separate session isolation",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": \"context-2\",\n  \"message\": \"How many sick leaves does she have?\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "ai",
+            "employee-assistant"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Separate session isolation",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"context-2\",\n  \"message\": \"How many sick leaves does she have?\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "ai",
+                "employee-assistant"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Fri, 18 Sep 2026 04:55:00 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "228"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"status_code\": 200,\n  \"data\": {\n    \"response\": \"I need to know which employee you're referring to in order to check their sick leave balance. Could you please provide the employee ID or name for \\\"she\\\"?\",\n    \"tools_used\": []\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Conditional multi-tool",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": \"conditional-1\",\n  \"message\": \"Check employee 101's casual leave balance. If they have at least one day, apply casual leave for September 15 2026 for personal work and then show their leave requests.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "ai",
+            "employee-assistant"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Conditional multi-tool",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"conditional-1\",\n  \"message\": \"Check employee 101's casual leave balance. If they have at least one day, apply casual leave for September 15 2026 for personal work and then show their leave requests.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "ai",
+                "employee-assistant"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Fri, 18 Sep 2026 04:57:06 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "531"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"status_code\": 200,\n  \"data\": {\n    \"response\": \"\\n\\n**Summary for Employee 101:**\\n\\n- **Casual Leave Balance:** 8 days available\\n- **Leave Applied:** Casual leave for September 15, 2026 (personal work) - Status: **Pending** (Request ID: 1)\\n\\n**Leave Requests:**\\n- Request ID: 1 | Casual Leave | September 15, 2026 | Reason: personal work | Status: Pending\\n\\nThe leave application has been submitted successfully and is currently awaiting approval.\",\n    \"tools_used\": [\n      \"get_leave_balance\",\n      \"apply_leave\",\n      \"get_leave_requests\"\n    ]\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Holiday conditional flow",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": \"holiday-1\",\n  \"message\": \"Check whether September 15 2026 is a company holiday for employee 101. If it is not a holiday, apply one day of casual leave for personal work.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "ai",
+            "employee-assistant"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Holiday conditional flow",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"holiday-1\",\n  \"message\": \"Check whether September 15 2026 is a company holiday for employee 101. If it is not a holiday, apply one day of casual leave for personal work.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "ai",
+                "employee-assistant"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Fri, 18 Sep 2026 05:04:32 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "434"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"status_code\": 200,\n  \"data\": {\n    \"response\": \"I checked the company holidays for September 15, 2026 and found that it is not a company holiday.\\n\\nSince it's not a holiday, I have successfully applied one day of casual leave for employee 101 for September 15, 2026 for personal work. The leave request has been submitted and is currently pending approval (Request ID: 3).\",\n    \"tools_used\": [\n      \"get_company_holidays\",\n      \"apply_leave\"\n    ]\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Invalid date",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": \"invalid-date-1\",\n  \"message\": \"Apply casual leave for employee 101 on September 31 2026 for personal work.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "ai",
+            "employee-assistant"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Invalid date",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"invalid-date-1\",\n  \"message\": \"Apply casual leave for employee 101 on September 31 2026 for personal work.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "ai",
+                "employee-assistant"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Fri, 18 Sep 2026 05:16:45 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "451"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"status_code\": 200,\n  \"data\": {\n    \"response\": \"I need to point out that **September 31, 2026 is not a valid date** – September only has 30 days. \\n\\nCould you please confirm the correct date you'd like to apply for? For example:\\n- September 30, 2026\\n- October 1, 2026\\n- Or another date range\\n\\nOnce you provide a valid date, I can check employee 101's details and process the casual leave application for personal work.\",\n    \"tools_used\": []\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "End date before start date",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": \"invalid-range-1\",\n  \"message\": \"Apply casual leave for employee 101 from September 25 2026 to September 20 2026 for personal work.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "ai",
+            "employee-assistant"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "End date before start date",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"invalid-range-1\",\n  \"message\": \"Apply casual leave for employee 101 from September 25 2026 to September 20 2026 for personal work.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "ai",
+                "employee-assistant"
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Fri, 18 Sep 2026 05:17:25 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "102"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"detail\": {\n    \"success\": false,\n    \"status_code\": 400,\n    \"data\": {\n      \"error\": \"End date cannot be before start date\"\n    }\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Insufficient leave balance",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": \"balance-1\",\n  \"message\": \"Apply casual leave for employee 101 from September 21 2026 to September 30 2026 for personal work.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "ai",
+            "employee-assistant"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Insufficient leave balance",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"balance-1\",\n  \"message\": \"Apply casual leave for employee 101 from September 21 2026 to September 30 2026 for personal work.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "ai",
+                "employee-assistant"
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Fri, 18 Sep 2026 05:22:15 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "92"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"detail\": {\n    \"success\": false,\n    \"status_code\": 400,\n    \"data\": {\n      \"error\": \"Insufficient leave balance\"\n    }\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Leave application for non-existing employee",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": \"employee-leave-1\",\n  \"message\": \"Apply casual leave for employee 999 on September 20 2026 for personal work.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "ai",
+            "employee-assistant"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Leave application for non-existing employee",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"employee-leave-1\",\n  \"message\": \"Apply casual leave for employee 999 on September 20 2026 for personal work.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "ai",
+                "employee-assistant"
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Fri, 18 Sep 2026 05:23:00 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "84"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"detail\": {\n    \"success\": false,\n    \"status_code\": 400,\n    \"data\": {\n      \"error\": \"Employee not found\"\n    }\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Empty message",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"session_id\": \"empty-1\",\n  \"message\": \"\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "ai",
+            "employee-assistant"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Empty message",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"empty-1\",\n  \"message\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/ai/employee-assistant",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "ai",
+                "employee-assistant"
+              ]
+            }
+          },
+          "status": "Unprocessable Entity",
+          "code": 422,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Fri, 18 Sep 2026 05:27:02 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "147"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"detail\": [\n    {\n      \"type\": \"string_too_short\",\n      \"loc\": [\n        \"body\",\n        \"message\"\n      ],\n      \"msg\": \"String should have at least 1 character\",\n      \"input\": \"\",\n      \"ctx\": {\n        \"min_length\": 1\n      }\n    }\n  ]\n}"
+        }
+      ]
+    }
+  ]
+}
