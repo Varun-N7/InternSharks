@@ -60,3 +60,4 @@ def update_task_status(task_id: int, status: str):
             return task
 
     raise ValueError("Task not found")
+    
