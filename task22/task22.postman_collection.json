@@ -1,0 +1,1841 @@
+{
+  "info": {
+    "_postman_id": "17c42e7f-fa8c-443c-bcc9-ffcdf56e54f9",
+    "name": "task22",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "57475732",
+    "_collection_link": "https://go.postman.co/collection/57475732-17c42e7f-fa8c-443c-bcc9-ffcdf56e54f9?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Read tool, no approval",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"goal\": \"Find employee Arun and tell me his employee details.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/agent/runs",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "agent",
+            "runs"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Read tool, no approval",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"goal\": \"Find employee Arun and tell me his employee details.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/agent/runs",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "agent",
+                "runs"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Mon, 21 Sep 2026 11:31:53 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "443"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"status_code\": 200,\n  \"data\": {\n    \"run_id\": \"run_659f5894e3\",\n    \"goal\": \"Find employee Arun and tell me his employee details.\",\n    \"status\": \"completed\",\n    \"step_count\": 1,\n    \"pending_action\": null,\n    \"execution_trace\": [\n      {\n        \"step\": 1,\n        \"type\": \"tool_execution\",\n        \"tool\": \"find_employee\",\n        \"status\": \"success\",\n        \"arguments\": {\n          \"name\": \"Arun\"\n        },\n        \"result\": {\n          \"employee_id\": 101,\n          \"name\": \"Arun\",\n          \"designation\": \"Backend Developer\"\n        },\n        \"attempt\": 1\n      }\n    ],\n    \"response\": \"Agent execution completed.\"\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Write tool should require approval",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"goal\": \"Create a project called RetryProject.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/agent/runs",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "agent",
+            "runs"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Write tool should require approval",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"goal\": \"Create a project called RetryProject.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/agent/runs",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "agent",
+                "runs"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Mon, 21 Sep 2026 11:34:50 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "480"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"status_code\": 200,\n  \"data\": {\n    \"run_id\": \"run_ddd0d200fa\",\n    \"goal\": \"Create a project called RetryProject.\",\n    \"status\": \"waiting_for_approval\",\n    \"step_count\": 0,\n    \"pending_action\": {\n      \"action_id\": \"action_2cce7191dc\",\n      \"tool\": \"create_project\",\n      \"arguments\": {\n        \"name\": \"RetryProject\"\n      },\n      \"status\": \"pending\"\n    },\n    \"execution_trace\": [\n      {\n        \"step\": 1,\n        \"type\": \"approval_required\",\n        \"tool\": \"create_project\",\n        \"status\": \"waiting\",\n        \"arguments\": {\n          \"name\": \"RetryProject\"\n        }\n      }\n    ],\n    \"response\": \"Agent is waiting for human approval.\"\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Approve the pending write",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"approved\": true\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/agent/runs/run_ddd0d200fa/actions/action_2cce7191dc/approval",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "agent",
+            "runs",
+            "run_ddd0d200fa",
+            "actions",
+            "action_2cce7191dc",
+            "approval"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Approve the pending write",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"approved\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/agent/runs/run_ddd0d200fa/actions/action_2cce7191dc/approval",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "agent",
+                "runs",
+                "run_ddd0d200fa",
+                "actions",
+                "action_2cce7191dc",
+                "approval"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Mon, 21 Sep 2026 11:55:25 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "573"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"status_code\": 200,\n  \"data\": {\n    \"run_id\": \"run_ddd0d200fa\",\n    \"goal\": \"Create a project called RetryProject.\",\n    \"status\": \"completed\",\n    \"step_count\": 1,\n    \"pending_action\": null,\n    \"execution_trace\": [\n      {\n        \"step\": 1,\n        \"type\": \"approval_required\",\n        \"tool\": \"create_project\",\n        \"status\": \"waiting\",\n        \"arguments\": {\n          \"name\": \"RetryProject\"\n        }\n      },\n      {\n        \"step\": 1,\n        \"type\": \"tool_execution\",\n        \"tool\": \"create_project\",\n        \"status\": \"success\",\n        \"arguments\": {\n          \"name\": \"RetryProject\"\n        },\n        \"result\": {\n          \"project_id\": 1,\n          \"name\": \"RetryProject\",\n          \"description\": \"\",\n          \"members\": [],\n          \"status\": \"active\"\n        },\n        \"attempt\": 1\n      }\n    ],\n    \"response\": \"Agent execution completed.\"\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Rejected write action-1",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"goal\": \"Create a project called RejectProject.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/agent/runs",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "agent",
+            "runs"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Rejected write action-1",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"goal\": \"Create a project called RejectProject.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/agent/runs",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "agent",
+                "runs"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Mon, 21 Sep 2026 11:56:55 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "483"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"status_code\": 200,\n  \"data\": {\n    \"run_id\": \"run_aa7576d77d\",\n    \"goal\": \"Create a project called RejectProject.\",\n    \"status\": \"waiting_for_approval\",\n    \"step_count\": 0,\n    \"pending_action\": {\n      \"action_id\": \"action_fdb5a4c2b1\",\n      \"tool\": \"create_project\",\n      \"arguments\": {\n        \"name\": \"RejectProject\"\n      },\n      \"status\": \"pending\"\n    },\n    \"execution_trace\": [\n      {\n        \"step\": 1,\n        \"type\": \"approval_required\",\n        \"tool\": \"create_project\",\n        \"status\": \"waiting\",\n        \"arguments\": {\n          \"name\": \"RejectProject\"\n        }\n      }\n    ],\n    \"response\": \"Agent is waiting for human approval.\"\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Rejected write action-2",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"approved\": false\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/agent/runs/run_aa7576d77d/actions/action_fdb5a4c2b1/approval",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "agent",
+            "runs",
+            "run_aa7576d77d",
+            "actions",
+            "action_fdb5a4c2b1",
+            "approval"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Rejected write action-2",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"approved\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/agent/runs/run_aa7576d77d/actions/action_fdb5a4c2b1/approval",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "agent",
+                "runs",
+                "run_aa7576d77d",
+                "actions",
+                "action_fdb5a4c2b1",
+                "approval"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Mon, 21 Sep 2026 11:57:50 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "2485"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"status_code\": 200,\n  \"data\": {\n    \"run_id\": \"run_aa7576d77d\",\n    \"goal\": \"Create a project called RejectProject.\",\n    \"status\": \"rejected\",\n    \"step_count\": 0,\n    \"messages\": [\n      {\n        \"role\": \"system\",\n        \"content\": \"\\nYou are a Stateful AI Project Operations Agent.\\n\\nYour job is to understand the user's goal and use the available\\ntools to inspect or modify project-management data.\\n\\nIMPORTANT RULES:\\n\\n1. Use tools to obtain real data.\\n2. Never invent employee IDs, project IDs, or task IDs.\\n3. IDs returned by backend tools are authoritative.\\n4. When the user gives an employee name, use find_employee to obtain\\n   the real employee ID before using that employee in another tool.\\n5. Never assume employee ID 1 means Arun.\\n6. Use read tools when information must be inspected.\\n7. Write tools modify application state.\\n8. The backend decides whether a tool requires human approval.\\n9. Never claim a write operation succeeded before receiving its result.\\n10. If a tool fails, do not claim it succeeded.\\n11. After receiving a tool result, decide whether another tool is required.\\n12. Stop when the user's goal is complete.\\n13. Do not perform unrelated actions.\\n14. Keep responses concise.\\n15. Never expose hidden reasoning or chain-of-thought.\\n\\nSAMPLE EMPLOYEES:\\n\\n101 = Arun = Backend Developer\\n102 = Priya = UI/UX Designer\\n103 = Rahul = QA Engineer\\n\\nIMPORTANT:\\nThese employee IDs are examples of the real backend data.\\nAlways use find_employee when you need to resolve an employee name.\\n\\nAVAILABLE TOOLS:\\n\\nfind_employee\\nget_project\\nlist_projects\\nget_project_tasks\\nget_task\\ncreate_project\\nadd_project_member\\ncreate_project_task\\nupdate_task_status\\ndelete_project_task\\n\"\n      },\n      {\n        \"role\": \"user\",\n        \"content\": \"Create a project called RejectProject.\"\n      },\n      {\n        \"role\": \"assistant\",\n        \"content\": null,\n        \"refusal\": null,\n        \"reasoning\": \"The user wants to create a project called \\\"RejectProject\\\". I'll use the create_project tool with the name \\\"RejectProject\\\".\",\n        \"tool_calls\": [\n          {\n            \"type\": \"function\",\n            \"index\": 0,\n            \"id\": \"call_8756faf6ff24420db2743e7d\",\n            \"function\": {\n              \"name\": \"create_project\",\n              \"arguments\": \"{\\\"name\\\": \\\"RejectProject\\\"}\"\n            }\n          }\n        ],\n        \"reasoning_details\": [\n          {\n            \"type\": \"reasoning.text\",\n            \"text\": \"The user wants to create a project called \\\"RejectProject\\\". I'll use the create_project tool with the name \\\"RejectProject\\\".\",\n            \"format\": \"unknown\",\n            \"index\": 0\n          }\n        ]\n      }\n    ],\n    \"pending_action\": null,\n    \"execution_trace\": [\n      {\n        \"step\": 1,\n        \"type\": \"approval_required\",\n        \"tool\": \"create_project\",\n        \"status\": \"waiting\",\n        \"arguments\": {\n          \"name\": \"RejectProject\"\n        }\n      }\n    ]\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Agent resumes after approval-1",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"goal\": \"Create a project called ResumeProject and add Arun to it.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/agent/runs",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "agent",
+            "runs"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Agent resumes after approval-1",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"goal\": \"Create a project called ResumeProject and add Arun to it.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/agent/runs",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "agent",
+                "runs"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Mon, 21 Sep 2026 11:59:18 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "502"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"status_code\": 200,\n  \"data\": {\n    \"run_id\": \"run_38d4b3c1a1\",\n    \"goal\": \"Create a project called ResumeProject and add Arun to it.\",\n    \"status\": \"waiting_for_approval\",\n    \"step_count\": 0,\n    \"pending_action\": {\n      \"action_id\": \"action_521658143e\",\n      \"tool\": \"create_project\",\n      \"arguments\": {\n        \"name\": \"ResumeProject\"\n      },\n      \"status\": \"pending\"\n    },\n    \"execution_trace\": [\n      {\n        \"step\": 1,\n        \"type\": \"approval_required\",\n        \"tool\": \"create_project\",\n        \"status\": \"waiting\",\n        \"arguments\": {\n          \"name\": \"ResumeProject\"\n        }\n      }\n    ],\n    \"response\": \"Agent is waiting for human approval.\"\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Agent resumes after approval-2",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"approved\": true\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/agent/runs/run_38d4b3c1a1/actions/action_521658143e/approval",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "agent",
+            "runs",
+            "run_38d4b3c1a1",
+            "actions",
+            "action_521658143e",
+            "approval"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Agent resumes after approval-2",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"approved\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/agent/runs/run_38d4b3c1a1/actions/action_521658143e/approval",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "agent",
+                "runs",
+                "run_38d4b3c1a1",
+                "actions",
+                "action_521658143e",
+                "approval"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Mon, 21 Sep 2026 12:00:08 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "1066"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"status_code\": 200,\n  \"data\": {\n    \"run_id\": \"run_38d4b3c1a1\",\n    \"goal\": \"Create a project called ResumeProject and add Arun to it.\",\n    \"status\": \"waiting_for_approval\",\n    \"step_count\": 2,\n    \"pending_action\": {\n      \"action_id\": \"action_87ca9bad3e\",\n      \"tool\": \"add_project_member\",\n      \"arguments\": {\n        \"employee_id\": 101,\n        \"project_id\": 2\n      },\n      \"status\": \"pending\"\n    },\n    \"execution_trace\": [\n      {\n        \"step\": 1,\n        \"type\": \"approval_required\",\n        \"tool\": \"create_project\",\n        \"status\": \"waiting\",\n        \"arguments\": {\n          \"name\": \"ResumeProject\"\n        }\n      },\n      {\n        \"step\": 1,\n        \"type\": \"tool_execution\",\n        \"tool\": \"create_project\",\n        \"status\": \"success\",\n        \"arguments\": {\n          \"name\": \"ResumeProject\"\n        },\n        \"result\": {\n          \"project_id\": 2,\n          \"name\": \"ResumeProject\",\n          \"description\": \"\",\n          \"members\": [],\n          \"status\": \"active\"\n        },\n        \"attempt\": 1\n      },\n      {\n        \"step\": 2,\n        \"type\": \"tool_execution\",\n        \"tool\": \"find_employee\",\n        \"status\": \"success\",\n        \"arguments\": {\n          \"name\": \"Arun\"\n        },\n        \"result\": {\n          \"employee_id\": 101,\n          \"name\": \"Arun\",\n          \"designation\": \"Backend Developer\"\n        },\n        \"attempt\": 1\n      },\n      {\n        \"step\": 3,\n        \"type\": \"approval_required\",\n        \"tool\": \"add_project_member\",\n        \"status\": \"waiting\",\n        \"arguments\": {\n          \"employee_id\": 101,\n          \"project_id\": 2\n        }\n      }\n    ],\n    \"response\": \"Agent is waiting for human approval.\"\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "External Service Timeout and Retry Exhaustion-1",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/agent/runs",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "agent",
+            "runs"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "External Service Timeout and Retry Exhaustion-1",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"goal\": \"Use the get_external_project_status tool for project 1. Set failure_mode exactly to temporary_failure. Do not use success. If the tool temporarily fails, retry it.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/agent/runs",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "agent",
+                "runs"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Tue, 22 Sep 2026 04:53:40 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "648"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"status_code\": 200,\n  \"data\": {\n    \"run_id\": \"run_1567abce0c\",\n    \"goal\": \"Use the get_external_project_status tool for project 1. Set failure_mode exactly to temporary_failure. Do not use success. If the tool temporarily fails, retry it.\",\n    \"status\": \"completed\",\n    \"step_count\": 1,\n    \"pending_action\": null,\n    \"execution_trace\": [\n      {\n        \"step\": 1,\n        \"type\": \"tool_execution\",\n        \"tool\": \"get_external_project_status\",\n        \"status\": \"success\",\n        \"arguments\": {\n          \"project_id\": 1,\n          \"failure_mode\": \"temporary_failure\"\n        },\n        \"result\": {\n          \"project_id\": 1,\n          \"external_status\": \"healthy\",\n          \"source\": \"simulated_external_service\",\n          \"recovered_after_retry\": true\n        },\n        \"attempt\": 2\n      }\n    ],\n    \"response\": \"Agent execution completed.\"\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "External Service Timeout and Retry Exhaustion-2",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"goal\": \"Use the get_external_project_status tool for project 1. Set failure_mode exactly to permanent_failure. Do not retry permanent failures.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/agent/runs",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "agent",
+            "runs"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "External Service Timeout and Retry Exhaustion-2",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"goal\": \"Use the get_external_project_status tool for project 1. Set failure_mode exactly to permanent_failure. Do not retry permanent failures.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/agent/runs",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "agent",
+                "runs"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Tue, 22 Sep 2026 05:13:12 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "572"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"status_code\": 200,\n  \"data\": {\n    \"run_id\": \"run_62308bbd78\",\n    \"goal\": \"Use the get_external_project_status tool for project 1. Set failure_mode exactly to permanent_failure. Do not retry permanent failures.\",\n    \"status\": \"completed\",\n    \"step_count\": 1,\n    \"pending_action\": null,\n    \"execution_trace\": [\n      {\n        \"step\": 1,\n        \"type\": \"tool_execution\",\n        \"tool\": \"get_external_project_status\",\n        \"status\": \"failed\",\n        \"arguments\": {\n          \"project_id\": 1,\n          \"failure_mode\": \"permanent_failure\"\n        },\n        \"result\": {\n          \"error\": \"Permanent external service failure\",\n          \"attempt_count\": 1\n        },\n        \"attempt\": 1\n      }\n    ],\n    \"response\": \"Agent execution completed.\"\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "External Service Timeout and Retry Exhaustion-3",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"goal\": \"Use the get_external_project_status tool for project 1. Set failure_mode exactly to timeout. Retry when the external operation times out.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/agent/runs",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "agent",
+            "runs"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "External Service Timeout and Retry Exhaustion-3",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"goal\": \"Use the get_external_project_status tool for project 1. Set failure_mode exactly to timeout. Retry when the external operation times out.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/agent/runs",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "agent",
+                "runs"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Tue, 22 Sep 2026 05:29:20 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "800"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"status_code\": 200,\n  \"data\": {\n    \"run_id\": \"run_33d583fcd5\",\n    \"goal\": \"Use the get_external_project_status tool for project 1. Set failure_mode exactly to timeout. Retry when the external operation times out.\",\n    \"status\": \"completed\",\n    \"step_count\": 2,\n    \"pending_action\": null,\n    \"execution_trace\": [\n      {\n        \"step\": 1,\n        \"type\": \"tool_execution\",\n        \"tool\": \"get_external_project_status\",\n        \"status\": \"failed\",\n        \"arguments\": {\n          \"project_id\": 1,\n          \"failure_mode\": \"timeout\"\n        },\n        \"result\": {\n          \"error\": \"Operation timed out after 5.0 seconds\",\n          \"attempt_count\": 3\n        },\n        \"attempt\": 3\n      },\n      {\n        \"step\": 2,\n        \"type\": \"tool_execution\",\n        \"tool\": \"get_external_project_status\",\n        \"status\": \"failed\",\n        \"arguments\": {\n          \"failure_mode\": \"timeout\",\n          \"project_id\": 1\n        },\n        \"result\": {\n          \"error\": \"Operation timed out after 5.0 seconds\",\n          \"attempt_count\": 3\n        },\n        \"attempt\": 3\n      }\n    ],\n    \"response\": \"Agent execution completed.\"\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Successful tool execution",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"goal\": \"Use the get_external_project_status tool for project 1. Set failure_mode exactly to success.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/agent/runs",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "agent",
+            "runs"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Successful tool execution",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"goal\": \"Use the get_external_project_status tool for project 1. Set failure_mode exactly to success.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/agent/runs",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "agent",
+                "runs"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Tue, 22 Sep 2026 05:56:26 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "538"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"status_code\": 200,\n  \"data\": {\n    \"run_id\": \"run_6975ce4982\",\n    \"goal\": \"Use the get_external_project_status tool for project 1. Set failure_mode exactly to success.\",\n    \"status\": \"completed\",\n    \"step_count\": 1,\n    \"pending_action\": null,\n    \"execution_trace\": [\n      {\n        \"step\": 1,\n        \"type\": \"tool_execution\",\n        \"tool\": \"get_external_project_status\",\n        \"status\": \"success\",\n        \"arguments\": {\n          \"project_id\": 1,\n          \"failure_mode\": \"success\"\n        },\n        \"result\": {\n          \"project_id\": 1,\n          \"external_status\": \"healthy\",\n          \"source\": \"simulated_external_service\"\n        },\n        \"attempt\": 1\n      }\n    ],\n    \"response\": \"Agent execution completed.\"\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Temporary failure",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"goal\": \"Use the get_external_project_status tool for project 1. Set failure_mode exactly to temporary_failure. Do not use success. If the tool temporarily fails, retry it.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/agent/runs",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "agent",
+            "runs"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Temporary failure",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"goal\": \"Use the get_external_project_status tool for project 1. Set failure_mode exactly to temporary_failure. Do not use success. If the tool temporarily fails, retry it.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/agent/runs",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "agent",
+                "runs"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Tue, 22 Sep 2026 05:57:39 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "648"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"status_code\": 200,\n  \"data\": {\n    \"run_id\": \"run_6c458390da\",\n    \"goal\": \"Use the get_external_project_status tool for project 1. Set failure_mode exactly to temporary_failure. Do not use success. If the tool temporarily fails, retry it.\",\n    \"status\": \"completed\",\n    \"step_count\": 1,\n    \"pending_action\": null,\n    \"execution_trace\": [\n      {\n        \"step\": 1,\n        \"type\": \"tool_execution\",\n        \"tool\": \"get_external_project_status\",\n        \"status\": \"success\",\n        \"arguments\": {\n          \"project_id\": 1,\n          \"failure_mode\": \"temporary_failure\"\n        },\n        \"result\": {\n          \"project_id\": 1,\n          \"external_status\": \"healthy\",\n          \"source\": \"simulated_external_service\",\n          \"recovered_after_retry\": true\n        },\n        \"attempt\": 2\n      }\n    ],\n    \"response\": \"Agent execution completed.\"\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Multiple temporary failures",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"goal\": \"Use the get_external_project_status tool for project 1. Set failure_mode exactly to temporary_failure. Retry the operation when it fails temporarily, and continue retrying until it succeeds or retries are exhausted.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/agent/runs",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "agent",
+            "runs"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Multiple temporary failures",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"goal\": \"Use the get_external_project_status tool for project 1. Set failure_mode exactly to temporary_failure. Retry the operation when it fails temporarily, and continue retrying until it succeeds or retries are exhausted.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/agent/runs",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "agent",
+                "runs"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Tue, 22 Sep 2026 05:59:17 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "700"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"status_code\": 200,\n  \"data\": {\n    \"run_id\": \"run_2621ea145d\",\n    \"goal\": \"Use the get_external_project_status tool for project 1. Set failure_mode exactly to temporary_failure. Retry the operation when it fails temporarily, and continue retrying until it succeeds or retries are exhausted.\",\n    \"status\": \"completed\",\n    \"step_count\": 1,\n    \"pending_action\": null,\n    \"execution_trace\": [\n      {\n        \"step\": 1,\n        \"type\": \"tool_execution\",\n        \"tool\": \"get_external_project_status\",\n        \"status\": \"success\",\n        \"arguments\": {\n          \"project_id\": 1,\n          \"failure_mode\": \"temporary_failure\"\n        },\n        \"result\": {\n          \"project_id\": 1,\n          \"external_status\": \"healthy\",\n          \"source\": \"simulated_external_service\",\n          \"recovered_after_retry\": true\n        },\n        \"attempt\": 1\n      }\n    ],\n    \"response\": \"Agent execution completed.\"\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Non-retryable failure",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"goal\": \"Use the get_external_project_status tool for project 1. Set failure_mode exactly to permanent_failure. Do not retry permanent failures.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/agent/runs",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "agent",
+            "runs"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Non-retryable failure",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"goal\": \"Use the get_external_project_status tool for project 1. Set failure_mode exactly to permanent_failure. Do not retry permanent failures.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/agent/runs",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "agent",
+                "runs"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Tue, 22 Sep 2026 06:00:34 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "572"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"status_code\": 200,\n  \"data\": {\n    \"run_id\": \"run_1cb05dfaf7\",\n    \"goal\": \"Use the get_external_project_status tool for project 1. Set failure_mode exactly to permanent_failure. Do not retry permanent failures.\",\n    \"status\": \"completed\",\n    \"step_count\": 1,\n    \"pending_action\": null,\n    \"execution_trace\": [\n      {\n        \"step\": 1,\n        \"type\": \"tool_execution\",\n        \"tool\": \"get_external_project_status\",\n        \"status\": \"failed\",\n        \"arguments\": {\n          \"project_id\": 1,\n          \"failure_mode\": \"permanent_failure\"\n        },\n        \"result\": {\n          \"error\": \"Permanent external service failure\",\n          \"attempt_count\": 1\n        },\n        \"attempt\": 1\n      }\n    ],\n    \"response\": \"Agent execution completed.\"\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Timeout handling",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"goal\": \"Use the get_external_project_status tool for project 1. Set failure_mode exactly to timeout. Retry when the external operation times out.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/agent/runs",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "agent",
+            "runs"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Timeout handling",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"goal\": \"Use the get_external_project_status tool for project 1. Set failure_mode exactly to timeout. Retry when the external operation times out.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/agent/runs",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "agent",
+                "runs"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Tue, 22 Sep 2026 06:02:13 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "948"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"status_code\": 200,\n  \"data\": {\n    \"run_id\": \"run_275e69ce87\",\n    \"goal\": \"Use the get_external_project_status tool for project 1. Set failure_mode exactly to timeout. Retry when the external operation times out.\",\n    \"status\": \"failed\",\n    \"step_count\": 2,\n    \"pending_action\": null,\n    \"execution_trace\": [\n      {\n        \"step\": 1,\n        \"type\": \"tool_execution\",\n        \"tool\": \"get_external_project_status\",\n        \"status\": \"failed\",\n        \"arguments\": {\n          \"project_id\": 1,\n          \"failure_mode\": \"timeout\"\n        },\n        \"result\": {\n          \"error\": \"Operation timed out after 5.0 seconds\",\n          \"attempt_count\": 3\n        },\n        \"attempt\": 3\n      },\n      {\n        \"step\": 2,\n        \"type\": \"tool_execution\",\n        \"tool\": \"get_external_project_status\",\n        \"status\": \"failed\",\n        \"arguments\": {\n          \"project_id\": 1,\n          \"failure_mode\": \"timeout\"\n        },\n        \"result\": {\n          \"error\": \"Operation timed out after 5.0 seconds\",\n          \"attempt_count\": 3\n        },\n        \"attempt\": 3\n      },\n      {\n        \"step\": 2,\n        \"type\": \"llm_execution\",\n        \"tool\": \"openrouter\",\n        \"status\": \"failed\",\n        \"result\": {\n          \"error\": \"OpenRouter rate limit reached\",\n          \"attempt_count\": 3\n        },\n        \"attempt\": 3\n      }\n    ],\n    \"response\": \"Agent execution stopped.\"\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Successful write-1",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"goal\": \"Create a project named Postman Test Project.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/agent/runs",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "agent",
+            "runs"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Successful write",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"goal\": \"Create a project named Postman Test Project.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/agent/runs",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "agent",
+                "runs"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Tue, 22 Sep 2026 06:26:36 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "503"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"status_code\": 200,\n  \"data\": {\n    \"run_id\": \"run_a026894eaf\",\n    \"goal\": \"Create a project named Postman Test Project.\",\n    \"status\": \"waiting_for_approval\",\n    \"step_count\": 0,\n    \"pending_action\": {\n      \"action_id\": \"action_29c051970b\",\n      \"tool\": \"create_project\",\n      \"arguments\": {\n        \"name\": \"Postman Test Project\"\n      },\n      \"status\": \"pending\"\n    },\n    \"execution_trace\": [\n      {\n        \"step\": 1,\n        \"type\": \"approval_required\",\n        \"tool\": \"create_project\",\n        \"status\": \"waiting\",\n        \"arguments\": {\n          \"name\": \"Postman Test Project\"\n        }\n      }\n    ],\n    \"response\": \"Agent is waiting for human approval.\"\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Successful write-2",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"approved\": true\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/agent/runs/run_a026894eaf/actions/action_29c051970b/approval",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "agent",
+            "runs",
+            "run_a026894eaf",
+            "actions",
+            "action_29c051970b",
+            "approval"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Successful write-2",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"approved\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/agent/runs/run_a026894eaf/actions/action_29c051970b/approval",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "agent",
+                "runs",
+                "run_a026894eaf",
+                "actions",
+                "action_29c051970b",
+                "approval"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Tue, 22 Sep 2026 06:30:06 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "604"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"status_code\": 200,\n  \"data\": {\n    \"run_id\": \"run_a026894eaf\",\n    \"goal\": \"Create a project named Postman Test Project.\",\n    \"status\": \"completed\",\n    \"step_count\": 1,\n    \"pending_action\": null,\n    \"execution_trace\": [\n      {\n        \"step\": 1,\n        \"type\": \"approval_required\",\n        \"tool\": \"create_project\",\n        \"status\": \"waiting\",\n        \"arguments\": {\n          \"name\": \"Postman Test Project\"\n        }\n      },\n      {\n        \"step\": 1,\n        \"type\": \"tool_execution\",\n        \"tool\": \"create_project\",\n        \"status\": \"success\",\n        \"arguments\": {\n          \"name\": \"Postman Test Project\"\n        },\n        \"result\": {\n          \"project_id\": 1,\n          \"name\": \"Postman Test Project\",\n          \"description\": \"\",\n          \"members\": [],\n          \"status\": \"active\"\n        },\n        \"attempt\": 1\n      }\n    ],\n    \"response\": \"Agent execution completed.\"\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Completed action cannot execute again-1",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"goal\": \"Create a project named Timeout Write Test.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/agent/runs",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "agent",
+            "runs"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Completed action cannot execute again-1",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"goal\": \"Create a project named Timeout Write Test.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/agent/runs",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "agent",
+                "runs"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Tue, 22 Sep 2026 07:00:00 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "497"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"status_code\": 200,\n  \"data\": {\n    \"run_id\": \"run_971ef9d34d\",\n    \"goal\": \"Create a project named Timeout Write Test.\",\n    \"status\": \"waiting_for_approval\",\n    \"step_count\": 0,\n    \"pending_action\": {\n      \"action_id\": \"action_47844ded03\",\n      \"tool\": \"create_project\",\n      \"arguments\": {\n        \"name\": \"Timeout Write Test\"\n      },\n      \"status\": \"pending\"\n    },\n    \"execution_trace\": [\n      {\n        \"step\": 1,\n        \"type\": \"approval_required\",\n        \"tool\": \"create_project\",\n        \"status\": \"waiting\",\n        \"arguments\": {\n          \"name\": \"Timeout Write Test\"\n        }\n      }\n    ],\n    \"response\": \"Agent is waiting for human approval.\"\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Completed action cannot execute again-2",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"approved\": true\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/agent/runs/run_a026894eaf/actions/action_29c051970b/approval",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "agent",
+            "runs",
+            "run_a026894eaf",
+            "actions",
+            "action_29c051970b",
+            "approval"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Completed action cannot execute again-2",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"approved\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/agent/runs/run_a026894eaf/actions/action_29c051970b/approval",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "agent",
+                "runs",
+                "run_a026894eaf",
+                "actions",
+                "action_29c051970b",
+                "approval"
+              ]
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Tue, 22 Sep 2026 07:16:06 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "92"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": false,\n  \"status_code\": 404,\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"No pending action found\"\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Resume interrupted run",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/agent/runs/run_275e69ce87/resume",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "agent",
+            "runs",
+            "run_275e69ce87",
+            "resume"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Resume interrupted run",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/agent/runs/run_275e69ce87/resume",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "agent",
+                "runs",
+                "run_275e69ce87",
+                "resume"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Tue, 22 Sep 2026 07:22:25 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "1186"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"status_code\": 200,\n  \"data\": {\n    \"run_id\": \"run_275e69ce87\",\n    \"goal\": \"Use the get_external_project_status tool for project 1. Set failure_mode exactly to timeout. Retry when the external operation times out.\",\n    \"status\": \"completed\",\n    \"step_count\": 3,\n    \"pending_action\": null,\n    \"execution_trace\": [\n      {\n        \"step\": 1,\n        \"type\": \"tool_execution\",\n        \"tool\": \"get_external_project_status\",\n        \"status\": \"failed\",\n        \"arguments\": {\n          \"project_id\": 1,\n          \"failure_mode\": \"timeout\"\n        },\n        \"result\": {\n          \"error\": \"Operation timed out after 5.0 seconds\",\n          \"attempt_count\": 3\n        },\n        \"attempt\": 3\n      },\n      {\n        \"step\": 2,\n        \"type\": \"tool_execution\",\n        \"tool\": \"get_external_project_status\",\n        \"status\": \"failed\",\n        \"arguments\": {\n          \"project_id\": 1,\n          \"failure_mode\": \"timeout\"\n        },\n        \"result\": {\n          \"error\": \"Operation timed out after 5.0 seconds\",\n          \"attempt_count\": 3\n        },\n        \"attempt\": 3\n      },\n      {\n        \"step\": 2,\n        \"type\": \"llm_execution\",\n        \"tool\": \"openrouter\",\n        \"status\": \"failed\",\n        \"result\": {\n          \"error\": \"OpenRouter rate limit reached\",\n          \"attempt_count\": 3\n        },\n        \"attempt\": 3\n      },\n      {\n        \"step\": 3,\n        \"type\": \"tool_execution\",\n        \"tool\": \"get_external_project_status\",\n        \"status\": \"failed\",\n        \"arguments\": {\n          \"failure_mode\": \"timeout\",\n          \"project_id\": 1\n        },\n        \"result\": {\n          \"error\": \"Operation timed out after 5.0 seconds\",\n          \"attempt_count\": 3\n        },\n        \"attempt\": 3\n      }\n    ],\n    \"response\": \"Agent execution completed.\"\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Completed run cannot incorrectly resume",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/agent/runs/run_275e69ce87/resume",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "agent",
+            "runs",
+            "run_275e69ce87",
+            "resume"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Completed run cannot incorrectly resume",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/agent/runs/run_275e69ce87/resume",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "agent",
+                "runs",
+                "run_275e69ce87",
+                "resume"
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Tue, 22 Sep 2026 07:27:40 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "6336"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": false,\n  \"error\": \"Completed runs cannot be resumed\",\n  \"run\": {\n    \"run_id\": \"run_275e69ce87\",\n    \"goal\": \"Use the get_external_project_status tool for project 1. Set failure_mode exactly to timeout. Retry when the external operation times out.\",\n    \"status\": \"completed\",\n    \"step_count\": 3,\n    \"messages\": [\n      {\n        \"role\": \"system\",\n        \"content\": \"\\nYou are a Stateful AI Project Operations Agent.\\n\\nYour job is to understand the user's goal and use the available\\ntools to inspect or modify project-management data.\\n\\nIMPORTANT RULES:\\n\\n1. Use tools to obtain real data.\\n2. Never invent employee IDs, project IDs, or task IDs.\\n3. IDs returned by backend tools are authoritative.\\n4. When the user gives an employee name, use find_employee to obtain\\n   the real employee ID before using that employee in another tool.\\n5. Never assume employee ID 1 means Arun.\\n6. Use read tools when information must be inspected.\\n7. Write tools modify application state.\\n8. The backend decides whether a tool requires human approval.\\n9. Never claim a write operation succeeded before receiving its result.\\n10. If a tool fails, do not claim it succeeded.\\n11. After receiving a tool result, decide whether another tool is required.\\n12. Stop when the user's goal is complete.\\n13. Do not perform unrelated actions.\\n14. Keep responses concise.\\n15. Never expose hidden reasoning or chain-of-thought.\\n\\nSAMPLE EMPLOYEES:\\n\\n101 = Arun = Backend Developer\\n102 = Priya = UI/UX Designer\\n103 = Rahul = QA Engineer\\n\\nIMPORTANT:\\nThese employee IDs are examples of the real backend data.\\nAlways use find_employee when you need to resolve an employee name.\\n\\nAVAILABLE TOOLS:\\n\\nfind_employee\\nget_project\\nlist_projects\\nget_project_tasks\\nget_task\\ncreate_project\\nadd_project_member\\ncreate_project_task\\nupdate_task_status\\ndelete_project_task\\n\"\n      },\n      {\n        \"role\": \"user\",\n        \"content\": \"Use the get_external_project_status tool for project 1. Set failure_mode exactly to timeout. Retry when the external operation times out.\"\n      },\n      {\n        \"role\": \"assistant\",\n        \"content\": null,\n        \"refusal\": null,\n        \"reasoning\": \"The user wants me to use the get_external_project_status tool for project 1 with failure_mode set to \\\"timeout\\\". Let me do that.\",\n        \"tool_calls\": [\n          {\n            \"type\": \"function\",\n            \"index\": 0,\n            \"id\": \"call_3a8feeaf57b04332853aebaf\",\n            \"function\": {\n              \"name\": \"get_external_project_status\",\n              \"arguments\": \"{\\\"project_id\\\": 1, \\\"failure_mode\\\": \\\"timeout\\\"}\"\n            }\n          }\n        ],\n        \"reasoning_details\": [\n          {\n            \"type\": \"reasoning.text\",\n            \"text\": \"The user wants me to use the get_external_project_status tool for project 1 with failure_mode set to \\\"timeout\\\". Let me do that.\",\n            \"format\": \"unknown\",\n            \"index\": 0\n          }\n        ]\n      },\n      {\n        \"role\": \"tool\",\n        \"tool_call_id\": \"call_3a8feeaf57b04332853aebaf\",\n        \"name\": \"get_external_project_status\",\n        \"content\": \"{\\\"error\\\": \\\"Operation timed out after 5.0 seconds\\\", \\\"attempt_count\\\": 3}\"\n      },\n      {\n        \"role\": \"assistant\",\n        \"content\": \"The operation timed out. Retrying as instructed...\\n\",\n        \"refusal\": null,\n        \"reasoning\": \"The operation timed out. The user said to retry when the external operation times out. Let me retry.\",\n        \"tool_calls\": [\n          {\n            \"type\": \"function\",\n            \"index\": 0,\n            \"id\": \"call_58580f0b4f9d47089af34711\",\n            \"function\": {\n              \"name\": \"get_external_project_status\",\n              \"arguments\": \"{\\\"project_id\\\": 1, \\\"failure_mode\\\": \\\"timeout\\\"}\"\n            }\n          }\n        ],\n        \"reasoning_details\": [\n          {\n            \"type\": \"reasoning.text\",\n            \"text\": \"The operation timed out. The user said to retry when the external operation times out. Let me retry.\",\n            \"format\": \"unknown\",\n            \"index\": 0\n          }\n        ]\n      },\n      {\n        \"role\": \"tool\",\n        \"tool_call_id\": \"call_58580f0b4f9d47089af34711\",\n        \"name\": \"get_external_project_status\",\n        \"content\": \"{\\\"error\\\": \\\"Operation timed out after 5.0 seconds\\\", \\\"attempt_count\\\": 3}\"\n      },\n      {\n        \"role\": \"assistant\",\n        \"content\": \"Still timing out. Retrying once more...\\n\",\n        \"refusal\": null,\n        \"reasoning\": \"The operation timed out again. The user said to retry when it times out. Let me retry once more.\",\n        \"tool_calls\": [\n          {\n            \"type\": \"function\",\n            \"index\": 0,\n            \"id\": \"call_4a2cc812740d47b1b2139834\",\n            \"function\": {\n              \"name\": \"get_external_project_status\",\n              \"arguments\": \"{\\\"failure_mode\\\": \\\"timeout\\\", \\\"project_id\\\": 1}\"\n            }\n          }\n        ],\n        \"reasoning_details\": [\n          {\n            \"type\": \"reasoning.text\",\n            \"text\": \"The operation timed out again. The user said to retry when it times out. Let me retry once more.\",\n            \"format\": \"unknown\",\n            \"index\": 0\n          }\n        ]\n      },\n      {\n        \"role\": \"tool\",\n        \"tool_call_id\": \"call_4a2cc812740d47b1b2139834\",\n        \"name\": \"get_external_project_status\",\n        \"content\": \"{\\\"error\\\": \\\"Operation timed out after 5.0 seconds\\\", \\\"attempt_count\\\": 3}\"\n      },\n      {\n        \"role\": \"assistant\",\n        \"content\": \"The external operation for project 1 continues to time out after multiple retries. Here's a summary of the attempts:\\n\\n| Attempt | Failure Mode | Result |\\n|---------|-------------|--------|\\n| 1 | timeout | Operation timed out after 5.0 seconds (3 attempts) |\\n| 2 | timeout | Operation timed out after 5.0 seconds (3 attempts) |\\n| 3 | timeout | Operation timed out after 5.0 seconds (3 attempts) |\\n\\nThe external dependency for project 1 appears to be unreachable. Would you like me to try a different failure mode (e.g., `success`, `temporary_failure`, or `permanent_failure`) to check if the service is available under a different condition, or would you like to take any other action?\",\n        \"refusal\": null,\n        \"reasoning\": \"The external operation continues to time out. I've retried multiple times as instructed. Let me summarize the results for the user.\",\n        \"reasoning_details\": [\n          {\n            \"type\": \"reasoning.text\",\n            \"text\": \"The external operation continues to time out. I've retried multiple times as instructed. Let me summarize the results for the user.\",\n            \"format\": \"unknown\",\n            \"index\": 0\n          }\n        ]\n      }\n    ],\n    \"pending_action\": null,\n    \"execution_trace\": [\n      {\n        \"step\": 1,\n        \"type\": \"tool_execution\",\n        \"tool\": \"get_external_project_status\",\n        \"status\": \"failed\",\n        \"arguments\": {\n          \"project_id\": 1,\n          \"failure_mode\": \"timeout\"\n        },\n        \"result\": {\n          \"error\": \"Operation timed out after 5.0 seconds\",\n          \"attempt_count\": 3\n        },\n        \"attempt\": 3\n      },\n      {\n        \"step\": 2,\n        \"type\": \"tool_execution\",\n        \"tool\": \"get_external_project_status\",\n        \"status\": \"failed\",\n        \"arguments\": {\n          \"project_id\": 1,\n          \"failure_mode\": \"timeout\"\n        },\n        \"result\": {\n          \"error\": \"Operation timed out after 5.0 seconds\",\n          \"attempt_count\": 3\n        },\n        \"attempt\": 3\n      },\n      {\n        \"step\": 2,\n        \"type\": \"llm_execution\",\n        \"tool\": \"openrouter\",\n        \"status\": \"failed\",\n        \"result\": {\n          \"error\": \"OpenRouter rate limit reached\",\n          \"attempt_count\": 3\n        },\n        \"attempt\": 3\n      },\n      {\n        \"step\": 3,\n        \"type\": \"tool_execution\",\n        \"tool\": \"get_external_project_status\",\n        \"status\": \"failed\",\n        \"arguments\": {\n          \"failure_mode\": \"timeout\",\n          \"project_id\": 1\n        },\n        \"result\": {\n          \"error\": \"Operation timed out after 5.0 seconds\",\n          \"attempt_count\": 3\n        },\n        \"attempt\": 3\n      }\n    ]\n  }\n}"
+        }
+      ]
+    }
+  ]
+}
