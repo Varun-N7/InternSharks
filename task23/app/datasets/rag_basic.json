@@ -1,0 +1,122 @@
+[
+  {
+    "id": "eval_001",
+    "question": "Who manages Project Nova?",
+    "context": "Project Nova is managed by Arun and uses FastAPI.",
+    "expected_answer": "Arun",
+    "expected_keywords": ["Arun"],
+    "should_refuse": false
+  },
+  {
+    "id": "eval_002",
+    "question": "Which framework does Project Nova use?",
+    "context": "Project Nova is managed by Arun and uses FastAPI.",
+    "expected_answer": "FastAPI",
+    "expected_keywords": ["FastAPI"],
+    "should_refuse": false
+  },
+  {
+    "id": "eval_003",
+    "question": "What database does Project Nova use?",
+    "context": "Project Nova is managed by Arun and uses FastAPI. No database information is provided.",
+    "expected_answer": null,
+    "expected_keywords": [],
+    "should_refuse": true
+  },
+  {
+    "id": "eval_004",
+    "question": "Who manages Project Orion?",
+    "context": "Project Orion is managed by Priya and uses Django.",
+    "expected_answer": "Priya",
+    "expected_keywords": ["Priya"],
+    "should_refuse": false
+  },
+  {
+    "id": "eval_005",
+    "question": "Which framework does Project Orion use?",
+    "context": "Project Orion is managed by Priya and uses Django.",
+    "expected_answer": "Django",
+    "expected_keywords": ["Django"],
+    "should_refuse": false
+  },
+  {
+    "id": "eval_006",
+    "question": "What database does Project Orion use?",
+    "context": "Project Orion uses Django. The database is not specified.",
+    "expected_answer": null,
+    "expected_keywords": [],
+    "should_refuse": true
+  },
+  {
+    "id": "eval_007",
+    "question": "Who is the project manager for Nova?",
+    "context": "Project Nova is managed by Arun and uses FastAPI.",
+    "expected_answer": "Arun",
+    "expected_keywords": ["Arun"],
+    "should_refuse": false
+  },
+  {
+    "id": "eval_008",
+    "question": "What technology is used by Project Nova?",
+    "context": "Project Nova is managed by Arun and uses FastAPI.",
+    "expected_answer": "FastAPI",
+    "expected_keywords": ["FastAPI"],
+    "should_refuse": false
+  },
+  {
+    "id": "eval_009",
+    "question": "What is Arun's salary?",
+    "context": "Arun works in the Development department.",
+    "expected_answer": null,
+    "expected_keywords": [],
+    "should_refuse": true
+  },
+  {
+    "id": "eval_010",
+    "question": "Which department does Arun work in?",
+    "context": "Arun works in the Development department.",
+    "expected_answer": "Development",
+    "expected_keywords": ["Development"],
+    "should_refuse": false
+  },
+  {
+    "id": "eval_011",
+    "question": "What database does Project Orion use?",
+    "context": "Project Orion uses Django.",
+    "expected_answer": null,
+    "expected_keywords": [],
+    "should_refuse": true
+  },
+  {
+    "id": "eval_012",
+    "question": "Who manages Project Nova?",
+    "context": "Project Nova is managed by Arun and uses FastAPI.",
+    "expected_answer": "Arun",
+    "expected_keywords": ["Arun"],
+    "should_refuse": false
+  },
+  {
+    "id": "eval_013",
+    "question": "Does Project Nova use FastAPI?",
+    "context": "Project Nova is managed by Arun and uses FastAPI.",
+    "expected_answer": "Yes",
+    "expected_keywords": ["FastAPI"],
+    "should_refuse": false
+  },
+  {
+    "id": "eval_014",
+    "question": "What database does Project Nova use?",
+    "context": "Project Nova uses FastAPI and is managed by Arun.",
+    "expected_answer": null,
+    "expected_keywords": [],
+    "should_refuse": true
+  },
+  {
+    "id": "eval_015",
+    "question": "Who manages Project Atlas?",
+    "context": "Project Atlas uses Flask. No project manager is specified.",
+    "expected_answer": null,
+    "expected_keywords": [],
+    "should_refuse": true
+  }
+]

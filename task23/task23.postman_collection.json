@@ -1,0 +1,578 @@
+{
+  "info": {
+    "_postman_id": "cf3e2976-a499-4283-961c-247f4609dc50",
+    "name": "task23",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "57475732",
+    "_collection_link": "https://go.postman.co/collection/57475732-cf3e2976-a499-4283-961c-247f4609dc50?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Run Evaluation Suite",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"suite\": \"rag_basic\"\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/eval/run",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "eval",
+            "run"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Run Evaluation Suite",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"suite\": \"rag_basic\"\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/eval/run",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "eval",
+                "run"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Wed, 23 Sep 2026 09:31:17 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "174"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"status_code\": 200,\n  \"data\": {\n    \"run_id\": \"eval_run_ae23a03520e2\",\n    \"suite\": \"rag_basic\",\n    \"prompt_version\": \"v1\",\n    \"total_cases\": 15,\n    \"passed\": 3,\n    \"failed\": 12,\n    \"pass_rate\": 0.2\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get Evaluation Run",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/eval/runs/eval_run_ae23a03520e2",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "eval",
+            "runs",
+            "eval_run_ae23a03520e2"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Get Evaluation Run",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/eval/runs/eval_run_ae23a03520e2",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "eval",
+                "runs",
+                "eval_run_ae23a03520e2"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Wed, 23 Sep 2026 09:37:37 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "3976"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"data\": {\n    \"run_id\": \"eval_run_ae23a03520e2\",\n    \"suite\": \"rag_basic\",\n    \"model\": \"demo-model\",\n    \"prompt_version\": \"v1\",\n    \"total_cases\": 15,\n    \"passed\": 3,\n    \"failed\": 12,\n    \"pass_rate\": 0.2,\n    \"created_at\": \"2026-09-23T09:31:17.936690+00:00\",\n    \"results\": [\n      {\n        \"case_id\": \"eval_001\",\n        \"question\": \"Who manages Project Nova?\",\n        \"actual_answer\": \"Arun manages Project Nova.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0038460002542706206\n      },\n      {\n        \"case_id\": \"eval_002\",\n        \"question\": \"Which framework does Project Nova use?\",\n        \"actual_answer\": \"The database information is not provided.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": true\n        },\n        \"latency_ms\": 0.002146998667740263\n      },\n      {\n        \"case_id\": \"eval_003\",\n        \"question\": \"What database does Project Nova use?\",\n        \"actual_answer\": \"Project Nova uses FastAPI.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0012479995348257944\n      },\n      {\n        \"case_id\": \"eval_004\",\n        \"question\": \"Who manages Project Orion?\",\n        \"actual_answer\": \"Priya manages Project Orion.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0010170006135012954\n      },\n      {\n        \"case_id\": \"eval_005\",\n        \"question\": \"Which framework does Project Orion use?\",\n        \"actual_answer\": \"Project Orion uses Django.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0009599989425623789\n      },\n      {\n        \"case_id\": \"eval_006\",\n        \"question\": \"What database does Project Orion use?\",\n        \"actual_answer\": \"The database information is not available.\",\n        \"passed\": true,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": true\n        },\n        \"latency_ms\": 0.0008299994078697637\n      },\n      {\n        \"case_id\": \"eval_007\",\n        \"question\": \"Who is the project manager for Nova?\",\n        \"actual_answer\": \"Ravi manages Project Atlas.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0008749993867240846\n      },\n      {\n        \"case_id\": \"eval_008\",\n        \"question\": \"What technology is used by Project Nova?\",\n        \"actual_answer\": \"Project Atlas uses Python.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0009979994501918554\n      },\n      {\n        \"case_id\": \"eval_009\",\n        \"question\": \"What is Arun's salary?\",\n        \"actual_answer\": \"Arun manages Project Nova.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0009060004231287166\n      },\n      {\n        \"case_id\": \"eval_010\",\n        \"question\": \"Which department does Arun work in?\",\n        \"actual_answer\": \"Project Nova has three backend services.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0009619998309062794\n      },\n      {\n        \"case_id\": \"eval_011\",\n        \"question\": \"What database does Project Orion use?\",\n        \"actual_answer\": \"The salary information is not provided.\",\n        \"passed\": true,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": true\n        },\n        \"latency_ms\": 0.0008830011211102828\n      },\n      {\n        \"case_id\": \"eval_012\",\n        \"question\": \"Who manages Project Nova?\",\n        \"actual_answer\": \"Arun works in the Development department.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0009510004019830376\n      },\n      {\n        \"case_id\": \"eval_013\",\n        \"question\": \"Does Project Nova use FastAPI?\",\n        \"actual_answer\": \"No. Project Orion uses Django.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0009399991540703923\n      },\n      {\n        \"case_id\": \"eval_014\",\n        \"question\": \"What database does Project Nova use?\",\n        \"actual_answer\": \"Project Orion is managed by Priya.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0009739997040014714\n      },\n      {\n        \"case_id\": \"eval_015\",\n        \"question\": \"Who manages Project Atlas?\",\n        \"actual_answer\": \"Project Orion is managed by Priya and uses Django. The database information is not provided.\",\n        \"passed\": true,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": true\n        },\n        \"latency_ms\": 0.0008869992598192766\n      }\n    ]\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get Failed Cases",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/eval/runs/eval_run_ae23a03520e2/failures",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "eval",
+            "runs",
+            "eval_run_ae23a03520e2",
+            "failures"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Get Failed Cases",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/eval/runs/eval_run_ae23a03520e2/failures",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "eval",
+                "runs",
+                "eval_run_ae23a03520e2",
+                "failures"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Wed, 23 Sep 2026 09:39:34 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "3000"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"data\": {\n    \"run_id\": \"eval_run_ae23a03520e2\",\n    \"failures\": [\n      {\n        \"case_id\": \"eval_001\",\n        \"question\": \"Who manages Project Nova?\",\n        \"actual_answer\": \"Arun manages Project Nova.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0038460002542706206\n      },\n      {\n        \"case_id\": \"eval_002\",\n        \"question\": \"Which framework does Project Nova use?\",\n        \"actual_answer\": \"The database information is not provided.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": true\n        },\n        \"latency_ms\": 0.002146998667740263\n      },\n      {\n        \"case_id\": \"eval_003\",\n        \"question\": \"What database does Project Nova use?\",\n        \"actual_answer\": \"Project Nova uses FastAPI.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0012479995348257944\n      },\n      {\n        \"case_id\": \"eval_004\",\n        \"question\": \"Who manages Project Orion?\",\n        \"actual_answer\": \"Priya manages Project Orion.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0010170006135012954\n      },\n      {\n        \"case_id\": \"eval_005\",\n        \"question\": \"Which framework does Project Orion use?\",\n        \"actual_answer\": \"Project Orion uses Django.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0009599989425623789\n      },\n      {\n        \"case_id\": \"eval_007\",\n        \"question\": \"Who is the project manager for Nova?\",\n        \"actual_answer\": \"Ravi manages Project Atlas.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0008749993867240846\n      },\n      {\n        \"case_id\": \"eval_008\",\n        \"question\": \"What technology is used by Project Nova?\",\n        \"actual_answer\": \"Project Atlas uses Python.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0009979994501918554\n      },\n      {\n        \"case_id\": \"eval_009\",\n        \"question\": \"What is Arun's salary?\",\n        \"actual_answer\": \"Arun manages Project Nova.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0009060004231287166\n      },\n      {\n        \"case_id\": \"eval_010\",\n        \"question\": \"Which department does Arun work in?\",\n        \"actual_answer\": \"Project Nova has three backend services.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0009619998309062794\n      },\n      {\n        \"case_id\": \"eval_012\",\n        \"question\": \"Who manages Project Nova?\",\n        \"actual_answer\": \"Arun works in the Development department.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0009510004019830376\n      },\n      {\n        \"case_id\": \"eval_013\",\n        \"question\": \"Does Project Nova use FastAPI?\",\n        \"actual_answer\": \"No. Project Orion uses Django.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0009399991540703923\n      },\n      {\n        \"case_id\": \"eval_014\",\n        \"question\": \"What database does Project Nova use?\",\n        \"actual_answer\": \"Project Orion is managed by Priya.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0009739997040014714\n      }\n    ]\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Invalid Evaluation Suite",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"suite\": \"invalid_suite\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/eval/run",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "eval",
+            "run"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Invalid Evaluation Suite",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"suite\": \"invalid_suite\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/eval/run",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "eval",
+                "run"
+              ]
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Wed, 23 Sep 2026 09:47:33 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "54"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"detail\": \"Evaluation suite not found: invalid_suite\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Invalid Prompt Version",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"suite\": \"rag_basic\",\n  \"prompt_version\": \"invalid\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/eval/run",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "eval",
+            "run"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Invalid Prompt Version",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"suite\": \"rag_basic\",\n  \"prompt_version\": \"invalid\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/eval/run",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "eval",
+                "run"
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Wed, 23 Sep 2026 09:50:43 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "44"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"detail\": \"Invalid prompt version: invalid\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Persist Evaluation Results",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/eval/runs/eval_run_ae23a03520e2",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "eval",
+            "runs",
+            "eval_run_ae23a03520e2"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Persist Evaluation Results",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:8000/eval/runs/eval_run_ae23a03520e2",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "eval",
+                "runs",
+                "eval_run_ae23a03520e2"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Wed, 23 Sep 2026 09:56:16 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "3976"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"data\": {\n    \"run_id\": \"eval_run_ae23a03520e2\",\n    \"suite\": \"rag_basic\",\n    \"model\": \"demo-model\",\n    \"prompt_version\": \"v1\",\n    \"total_cases\": 15,\n    \"passed\": 3,\n    \"failed\": 12,\n    \"pass_rate\": 0.2,\n    \"created_at\": \"2026-09-23T09:31:17.936690+00:00\",\n    \"results\": [\n      {\n        \"case_id\": \"eval_001\",\n        \"question\": \"Who manages Project Nova?\",\n        \"actual_answer\": \"Arun manages Project Nova.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0038460002542706206\n      },\n      {\n        \"case_id\": \"eval_002\",\n        \"question\": \"Which framework does Project Nova use?\",\n        \"actual_answer\": \"The database information is not provided.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": true\n        },\n        \"latency_ms\": 0.002146998667740263\n      },\n      {\n        \"case_id\": \"eval_003\",\n        \"question\": \"What database does Project Nova use?\",\n        \"actual_answer\": \"Project Nova uses FastAPI.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0012479995348257944\n      },\n      {\n        \"case_id\": \"eval_004\",\n        \"question\": \"Who manages Project Orion?\",\n        \"actual_answer\": \"Priya manages Project Orion.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0010170006135012954\n      },\n      {\n        \"case_id\": \"eval_005\",\n        \"question\": \"Which framework does Project Orion use?\",\n        \"actual_answer\": \"Project Orion uses Django.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0009599989425623789\n      },\n      {\n        \"case_id\": \"eval_006\",\n        \"question\": \"What database does Project Orion use?\",\n        \"actual_answer\": \"The database information is not available.\",\n        \"passed\": true,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": true\n        },\n        \"latency_ms\": 0.0008299994078697637\n      },\n      {\n        \"case_id\": \"eval_007\",\n        \"question\": \"Who is the project manager for Nova?\",\n        \"actual_answer\": \"Ravi manages Project Atlas.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0008749993867240846\n      },\n      {\n        \"case_id\": \"eval_008\",\n        \"question\": \"What technology is used by Project Nova?\",\n        \"actual_answer\": \"Project Atlas uses Python.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0009979994501918554\n      },\n      {\n        \"case_id\": \"eval_009\",\n        \"question\": \"What is Arun's salary?\",\n        \"actual_answer\": \"Arun manages Project Nova.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0009060004231287166\n      },\n      {\n        \"case_id\": \"eval_010\",\n        \"question\": \"Which department does Arun work in?\",\n        \"actual_answer\": \"Project Nova has three backend services.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0009619998309062794\n      },\n      {\n        \"case_id\": \"eval_011\",\n        \"question\": \"What database does Project Orion use?\",\n        \"actual_answer\": \"The salary information is not provided.\",\n        \"passed\": true,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": true\n        },\n        \"latency_ms\": 0.0008830011211102828\n      },\n      {\n        \"case_id\": \"eval_012\",\n        \"question\": \"Who manages Project Nova?\",\n        \"actual_answer\": \"Arun works in the Development department.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0009510004019830376\n      },\n      {\n        \"case_id\": \"eval_013\",\n        \"question\": \"Does Project Nova use FastAPI?\",\n        \"actual_answer\": \"No. Project Orion uses Django.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0009399991540703923\n      },\n      {\n        \"case_id\": \"eval_014\",\n        \"question\": \"What database does Project Nova use?\",\n        \"actual_answer\": \"Project Orion is managed by Priya.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0009739997040014714\n      },\n      {\n        \"case_id\": \"eval_015\",\n        \"question\": \"Who manages Project Atlas?\",\n        \"actual_answer\": \"Project Orion is managed by Priya and uses Django. The database information is not provided.\",\n        \"passed\": true,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": true\n        },\n        \"latency_ms\": 0.0008869992598192766\n      }\n    ]\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get Failed Cases",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/eval/runs/eval_run_ae23a03520e2/failures",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "eval",
+            "runs",
+            "eval_run_ae23a03520e2",
+            "failures"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Get Failed Cases",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/eval/runs/eval_run_ae23a03520e2/failures",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "eval",
+                "runs",
+                "eval_run_ae23a03520e2",
+                "failures"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "date",
+              "value": "Wed, 23 Sep 2026 10:00:20 GMT"
+            },
+            {
+              "key": "server",
+              "value": "uvicorn"
+            },
+            {
+              "key": "content-length",
+              "value": "3000"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"success\": true,\n  \"data\": {\n    \"run_id\": \"eval_run_ae23a03520e2\",\n    \"failures\": [\n      {\n        \"case_id\": \"eval_001\",\n        \"question\": \"Who manages Project Nova?\",\n        \"actual_answer\": \"Arun manages Project Nova.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0038460002542706206\n      },\n      {\n        \"case_id\": \"eval_002\",\n        \"question\": \"Which framework does Project Nova use?\",\n        \"actual_answer\": \"The database information is not provided.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": true\n        },\n        \"latency_ms\": 0.002146998667740263\n      },\n      {\n        \"case_id\": \"eval_003\",\n        \"question\": \"What database does Project Nova use?\",\n        \"actual_answer\": \"Project Nova uses FastAPI.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0012479995348257944\n      },\n      {\n        \"case_id\": \"eval_004\",\n        \"question\": \"Who manages Project Orion?\",\n        \"actual_answer\": \"Priya manages Project Orion.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0010170006135012954\n      },\n      {\n        \"case_id\": \"eval_005\",\n        \"question\": \"Which framework does Project Orion use?\",\n        \"actual_answer\": \"Project Orion uses Django.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0009599989425623789\n      },\n      {\n        \"case_id\": \"eval_007\",\n        \"question\": \"Who is the project manager for Nova?\",\n        \"actual_answer\": \"Ravi manages Project Atlas.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0008749993867240846\n      },\n      {\n        \"case_id\": \"eval_008\",\n        \"question\": \"What technology is used by Project Nova?\",\n        \"actual_answer\": \"Project Atlas uses Python.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0009979994501918554\n      },\n      {\n        \"case_id\": \"eval_009\",\n        \"question\": \"What is Arun's salary?\",\n        \"actual_answer\": \"Arun manages Project Nova.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0009060004231287166\n      },\n      {\n        \"case_id\": \"eval_010\",\n        \"question\": \"Which department does Arun work in?\",\n        \"actual_answer\": \"Project Nova has three backend services.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0009619998309062794\n      },\n      {\n        \"case_id\": \"eval_012\",\n        \"question\": \"Who manages Project Nova?\",\n        \"actual_answer\": \"Arun works in the Development department.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0009510004019830376\n      },\n      {\n        \"case_id\": \"eval_013\",\n        \"question\": \"Does Project Nova use FastAPI?\",\n        \"actual_answer\": \"No. Project Orion uses Django.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0009399991540703923\n      },\n      {\n        \"case_id\": \"eval_014\",\n        \"question\": \"What database does Project Nova use?\",\n        \"actual_answer\": \"Project Orion is managed by Priya.\",\n        \"passed\": false,\n        \"scores\": {\n          \"keyword_match\": 0\n        },\n        \"checks\": {\n          \"non_empty\": true,\n          \"refusal\": false\n        },\n        \"latency_ms\": 0.0009739997040014714\n      }\n    ]\n  }\n}"
+        }
+      ]
+    }
+  ]
+}
