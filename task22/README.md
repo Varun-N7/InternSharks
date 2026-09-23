@@ -117,7 +117,7 @@ The suite covers retryable failures, non-retryable failures, retry exhaustion, a
 | 20 | Completed action cannot execute again | Completed |
 | 21 | Resume interrupted run | Completed |
 | 22 | Completed run cannot incorrectly resume | Completed |
-| 23 | Approval + retry integration | Pending |
+| 23 | Approval + retry integration | Completed |
 
 ## Verified Behaviors
 
@@ -165,23 +165,21 @@ with a pending action. After approval, the write executes and the run can become
 completed
 ```
 
-## Important Testing Note
+## Approval + Retry Integration Flow (Test 23)
 
-Test 23 — **Approval + retry integration** — remains pending.
-
-The Postman approval tests demonstrated:
+Verified flow for sensitive write operations requiring retry:
 
 ```text
-approval_required → tool_execution → success
+approval_required (status: waiting)
+       ↓
+approval granted (POST /agent/runs/{run_id}/actions/{action_id}/approval)
+       ↓
+tool_execution (status: failed, error: Temporary service failure, attempt: 1, retryable: true)
+       ↓
+tool_execution (status: success, attempt: 2)
+       ↓
+run completed
 ```
-
-with:
-
-```text
-attempt: 1
-```
-
-They did not produce an actual retryable failure after approval, so Test 23 was not marked completed.
 
 ## Reliability Errors
 

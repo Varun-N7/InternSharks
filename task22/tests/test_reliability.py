@@ -107,3 +107,57 @@ def test_openrouter_retryable_failure(monkeypatch):
     assert result["success"] is True
     assert result["attempt_count"] == 3
     assert result["result"]["content"] == "success"
+
+
+def test_approval_with_retry_and_success(monkeypatch, tmp_path):
+    from app.agent import runner
+    from app.services.approval_service import create_action
+    from app.storage.database import init_database
+
+    init_database()
+
+    run = {
+        "run_id": "test_run_approval_retry",
+        "goal": "Create a project named Test 23 Retry Fresh.",
+        "status": "waiting_for_approval",
+        "step_count": 0,
+        "messages": [],
+        "pending_action": None,
+        "execution_trace": [
+            {
+                "step": 1,
+                "type": "approval_required",
+                "tool": "create_project",
+                "status": "waiting",
+                "arguments": {"name": "Test 23 Retry Fresh"},
+            }
+        ],
+    }
+
+    action_id = create_action(
+        run_id=run["run_id"],
+        tool="create_project",
+        arguments={"name": "Test 23 Retry Fresh"},
+    )
+
+    action = {
+        "action_id": action_id,
+        "tool": "create_project",
+        "arguments": {"name": "Test 23 Retry Fresh"},
+    }
+
+    # Mock continue_agent to simply return build_response
+    monkeypatch.setattr(runner, "continue_agent", lambda r: runner.build_response(r))
+
+    response = runner.approve_and_resume(run, action)
+
+    # Verify execution trace contains failure then success
+    traces = response["execution_trace"]
+    assert len(traces) == 3
+    assert traces[0]["type"] == "approval_required"
+    assert traces[1]["type"] == "tool_execution"
+    assert traces[1]["status"] == "failed"
+    assert traces[1]["attempt"] == 1
+    assert traces[2]["type"] == "tool_execution"
+    assert traces[2]["status"] == "success"
+    assert traces[2]["attempt"] == 2

@@ -447,6 +447,8 @@ def add_trace(
 def execute_tool_with_reliability(
     tool_name,
     arguments,
+    on_retry=None,
+    on_attempt=None,
 ):
     tool = TOOLS.get(tool_name)
 
@@ -478,6 +480,8 @@ def execute_tool_with_reliability(
         operation,
         max_retries=MAX_RETRIES,
         base_delay=RETRY_BASE_DELAY,
+        on_retry=on_retry,
+        on_attempt=on_attempt,
     )
 
 
@@ -698,10 +702,26 @@ def continue_agent(run):
 
             run["step_count"] += 1
 
+            def on_tool_retry(attempt, next_attempt, delay, error):
+                add_trace(
+                    run,
+                    run["step_count"],
+                    "tool_execution",
+                    tool_name,
+                    "failed",
+                    arguments,
+                    {
+                        "error": error,
+                        "retryable": True,
+                    },
+                    attempt,
+                )
+
             reliability_result = (
                 execute_tool_with_reliability(
                     tool_name,
                     arguments,
+                    on_retry=on_tool_retry,
                 )
             )
 
@@ -830,14 +850,32 @@ def approve_and_resume(
 
             return continue_agent(run)
 
+    run["step_count"] += 1
+
+    def on_approval_tool_retry(attempt, next_attempt, delay, error):
+        from app.storage.action_repository import update_attempt
+        update_attempt(action_id, attempt, error)
+        add_trace(
+            run,
+            run["step_count"],
+            "tool_execution",
+            tool_name,
+            "failed",
+            arguments,
+            {
+                "error": error,
+                "retryable": True,
+            },
+            attempt,
+        )
+
     reliability_result = (
         execute_tool_with_reliability(
             tool_name,
             arguments,
+            on_retry=on_approval_tool_retry,
         )
     )
-
-    run["step_count"] += 1
 
     if reliability_result["success"]:
 

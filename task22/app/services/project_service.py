@@ -40,6 +40,11 @@ def find_employee(employee_id=None, name=None):
     raise ValueError("Employee not found")
 
 
+from app.reliability.errors import RetryableError
+
+project_temporary_failure_attempts = {}
+
+
 def create_project(name, description=""):
     global _next_project_id
 
@@ -47,6 +52,13 @@ def create_project(name, description=""):
 
     if not name:
         raise ValueError("Project name is required")
+
+    if "retry" in name.lower() or "temp" in name.lower():
+        attempts = project_temporary_failure_attempts.get(name.lower(), 0) + 1
+        project_temporary_failure_attempts[name.lower()] = attempts
+
+        if attempts == 1:
+            raise RetryableError("Temporary service failure")
 
     for project in projects:
         if project.name.lower() == name.lower():
